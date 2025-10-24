@@ -1,0 +1,1239 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>Bemessung von verankerten Baugrubensicherungen</title>
+
+		<link rel="stylesheet" href="../reveal.js/dist/reset.css">
+		<link rel="stylesheet" href="../reveal.js/dist/reveal.css">
+		<link rel="stylesheet" href="../reveal.js/dist/theme/white.css">
+
+		<!-- Theme used for syntax highlighted code -->
+		<link rel="stylesheet" href="../reveal.js/plugin/highlight/monokai.css">
+		
+		<!-- Font awesome is required for the chalkboard plugin -->
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+		<!-- Custom controls plugin is used to for opening and closing annotation modes. -->
+		<script src="https://cdn.jsdelivr.net/npm/reveal.js-plugins@latest/customcontrols/plugin.js"></script>
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js-plugins@latest/customcontrols/style.css">
+		<!-- Chalkboard plugin -->
+		<script src="https://cdn.jsdelivr.net/npm/reveal.js-plugins@latest/chalkboard/plugin.js"></script>
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js-plugins@latest/chalkboard/style.css">
+		
+		<!-- Seminar plugin -->
+		<script src="https://cdn.jsdelivr.net/npm/reveal.js-plugins@latest/seminar/plugin.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.6.1/socket.io.js"></script>
+		
+		<!-- Menu plugin -->
+		<script src="https://cdn.jsdelivr.net/npm/reveal.js-menu@2.1.0/menu.js"></script>
+		<link href=" https://cdn.jsdelivr.net/npm/reveal.js-menu@2.1.0/menu.css " rel="stylesheet">
+		
+		<!-- Questions plugin requires seminar plugin -->
+		<script src="https://cdn.jsdelivr.net/npm/reveal.js-plugins@latest/questions/plugin.js"></script>
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js-plugins@latest/questions/style.css">
+		
+		<!-- Poll plugin requires seminar plugin -->
+		<script src="https://cdn.jsdelivr.net/npm/reveal.js-plugins@latest/poll/plugin.js"></script>
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js-plugins@latest/poll/style.css">
+		
+		<!-- Chart plugin -->
+		<script src="https://cdn.jsdelivr.net/npm/reveal.js-plugins@latest/chart/plugin.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.2.0/chart.min.js"></script>
+		
+		<!-- QR-Codes -->
+		<script type="text/javascript" src="https://unpkg.com/qr-code-styling@1.5.0/lib/qr-code-styling.js"></script>
+		
+		<style>
+		
+		.columns {
+			display: flex;
+			align-items: center;
+		}
+
+		.column {
+			flex: 1;
+			margin: 10px;
+		}
+		
+		.custom-column {
+			width: 70%;
+			/* You can add additional styles as needed */
+		}
+
+		.custom-column60 {
+			width: 60%;
+			/* You can add additional styles as needed */
+		}
+		.custom-column30 {
+			width: 30%;
+			/* You can add additional styles as needed */
+		}
+		
+		.left-align {
+    text-align: left;
+		}
+
+		.right-align {
+    text-align: right;
+		}
+		
+		.reveal section {
+    text-align: left;
+		}
+		
+		.reveal h1, .reveal h2, .reveal h3, .reveal h4, .reveal h5, .reveal h6 {
+    text-transform: none;
+		}
+		
+		/* Style the overlay container */
+		.overlay-container {
+				position: relative;
+		}
+		
+		/* Style the subsequent images and position them slightly to the right */
+		.overlay-container img {
+				position: absolute;
+				top: 0;
+				left: 20px; /* Adjust this value to control the horizontal spacing */
+		}
+		
+		</style>
+		
+	</head>
+	
+	<body>
+		<div class="reveal">
+			<div class="slides">
+
+				<section>
+					<h2>Bemessung von verankerten Baugrubensicherungen</h2>
+					Modul: Grundbau  <br>
+					Studiengang: B.Sc. Bauingenieurwesen
+					<br>
+					<br>
+					Max Wiebicke<br><br>
+					<small>Stand: 30. Oktober 2025</small>
+					<div id="qrcode" style="position: absolute; bottom: 0px; right: 0px;"></div>
+					<br>
+					<small><a id="url"></a></small>
+					<!--
+					-->
+					
+				</section>
+
+				<section>
+					<section>
+						<h4>Rückblick - auskragende Baugrubenwand</h4>
+
+						<div class="r-stack">
+							<img class="fragment" src="images/Kragwand-Erddruck-00.svg" width="65%">
+							<img class="fragment fade-in-then-out" src="images/Kragwand-Erddruck-0.svg" width="65%">
+							<img class="fragment fade-in-then-out" src="images/Kragwand-Erddruck-1.svg" width="65%">
+							<img class="fragment fade-in-then-out" src="images/Kragwand-Erddruck-2.svg" width="65%">
+							<img class="fragment" src="images/Kragwand-Erddruck-3.svg" width="65%">
+						</div>
+
+					</section>
+
+					<section>
+						<h4>Rückblick - Mobilisierung des Erddrucks</h4>
+
+						<br>
+						<div class="r-stack">
+							<img src="images/Erddruck-Mobilisierung.svg" width="85%">
+						</div>
+
+					</section>
+
+					<section>
+						<h4>Rückblick - Erddruckverteilung</h4>
+
+						<img src="images/DIN4085-TabelleC1.jpg" width="45%">
+						<img src="images/DIN4085-TabelleD1.jpg" width="45%">
+						<p class="right-align">
+							<small style="display: block; margin-top: -60px;">(DIN4085)</small>
+						</p>
+
+					</section>
+
+					<section>
+						<h4>Rückblick - auskragende Baugrubenwand</h4>
+
+						<div class="columns" style="margin-bottom: 0 !important;">
+							<div class="column">
+								<br>
+								<img src="images/Kragwand-Erddruck-3.svg" width="75%">
+								<br><br><br>
+							</div>
+
+							<div class="column">
+								<br>
+								<img class="fragment" data-fragment-index="1" src="images/EAB_2012EB26-3.jpg" width="85%">
+								<p class="right-align">
+									<small class="fragment" data-fragment-index="1">(EAB, 2012)</small>
+								</p>
+							</div>
+						</div>
+						<span style="font-size: 25px; font-weight: normal; display: block; margin-top: -40px;">
+						Aufnahme der Kraft C &#10137; Erhöhung der theoretisch benötigten Einbindetiefe: $\Delta d = 0,2 d_1$</span>
+
+
+					</section>
+
+					<section>
+						<h4>Tiefe Baugruben</h4>
+
+						<div class="columns" style="margin-bottom: 0 !important;">
+							<div class="column">
+								<br>
+								<img src="images/Herle-DD-Johanneum.jpg" width="82%">
+								<p class="right-align" style="font-size: 20px; display: block; margin-top: -20px;">
+									Dresden Johanneum, 2005 (Ivo Herle)  &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
+								</p>
+							</div>
+
+							<div class="column">
+								<br>
+								<img src="images/Bauer2019-Bohrpfahlwand.jpg" width=100%">
+								<p class="right-align" style="font-size: 20px;display: block; margin-top: -20px;">
+									Schwäbisch Hall, 2019 (Bauer Spezialtiefbau GmbH) &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;
+								</p>
+							</div>
+						</div>
+
+					</section>
+
+				</section>
+
+				<section>
+
+					<section>
+						<h4>Verankerte Stützbauwerke</h4>
+						<br>
+						<div class="r-stack">
+							<img src="images/Achmus-2013-Waende.png" width="80%">
+						</div>
+						<p class="right-align">
+							<small>(Achmus, 2008)</small>
+						</p>
+					</section>
+
+					<section>
+						<h4>Erddruck hinter einer einfach gestützten Stützwand</h4>
+						<br>
+						<div class="r-stack">
+							<img class="fragment" data-fragment-index="1" src="images/Kolymbas2019-Erddruck-Stuetze.png" width="80%">
+						</div>
+						<p class="right-align fragment" data-fragment-index="1" >
+							<small>(Kolymbas, 2019)</small>
+						</p>
+
+					</section>
+
+					<section>
+						<h4>Erddruckumlagerung</h4>
+						<br>
+						<div class="r-stack">
+							<img src="images/Erddruckumlagerung-0.svg" width="80%">
+							<img class="fragment" src="images/Erddruckumlagerung-1.svg" width="80%">
+							<img class="fragment" src="images/Erddruckumlagerung.svg" width="80%">
+						</div>
+
+					</section>
+
+					<section>
+						<h4>Erddruckumlagerung nach EAB (2021) <br> Trägerbohlwände</h4>
+						<div class="r-stack">
+							<img src="images/EAB_2021-EB69-2.jpg" width="80%">
+						</div>
+
+						<p style="font-size: 25px;">
+						Erddrücke werden wie folgt umgelagert: &nbsp;&nbsp;&nbsp;&nbsp;
+						(b) ... $e_{ho,k} = 1,5 \cdot e_{hu,k}$; &nbsp;&nbsp;
+						(c) ... $e_{ho,k} = 2,0 \cdot e_{hu,k}$</p>
+
+
+					</section>
+
+					<section>
+						<h4>Erddruckumlagerung nach EAB (2021) <br> Spundwände und Ortbetonwände</h4>
+						<div class="r-stack">
+							<img src="images/EAB_2021-EB70-1.jpg" width="80%">
+						</div>
+
+						<p style="font-size: 25px;">
+						Erddrücke werden wie folgt umgelagert: &nbsp;&nbsp;&nbsp;&nbsp;
+						(b) ... $e_{ho,k} = 1,2 \cdot e_{hu,k}$; &nbsp;&nbsp;
+						(c) ... $e_{ho,k} = 1,5 \cdot e_{hu,k}$</p>
+
+
+					</section>
+
+					<section>
+						<h4> Erddruckansatz in Abhängigkeit der Nachgiebigkeit der Wand</h4>
+
+						<div class="r-stack">
+							<img src="images/Ziegler-Erddruck-Nachgiebigkeit.jpg" width="80%">
+						</div>
+						<p class="right-align">
+							<small>Ziegler (2012) in Anlehnung an DIN 4085</small>
+						</p>
+
+					</section>
+
+					<section>
+						<h4> Erddruckumlagerung </h4>
+
+						<ul style="font-size: 35px;">
+							<li>Betrag der Erddruckkraft ändert sich nicht</li>
+							<li>Umlagerung &#10137; Änderung der Lage der Erddruckresultierenden</li>
+							<li>abhängig von Anzahl und Lage der Stützpunkte</li>
+							<li>Umlagerung von aktivem Erddruck infolge Eigengewicht, Kohäsion und Auflasten $p \le 10~$kPa i.d.R. nur bis zur Baugrubensohle</li>
+							<li>Umlagerung auch beim erhöhten aktiven Erddruck</li>
+							<li>Erddruckfiguren oft aus EAB, jedoch kann die Erddruckverteilung auch durch Baubehörde vorgegeben werden</li>
+							<li>Wasserdruck wird NIE umgelagert!</li>
+						</ul>
+					</section>
+
+					<section>
+						<h4>Statische Ersatzsysteme</h4>
+						<p style="font-size: 30px;">Erdauflager wird über die Einbindetiefe mobilisiert</p>
+
+						<div class="columns">
+							<div class="column">
+								<ul style="font-size: 30px;">
+									<li>(A) ... <b>Einspannung</b> <br>
+									eine Erhöhung der Einbindetiefe wird das Tragverhalten der Wand nur noch unwesentlich verändern</li>
+									<br>
+
+									<li>(B) ... <b>freie Auflagerung</b> <br>
+									geringstmögliche Einbindetiefe, die zur Gewährleistung der Standsicherheit notwendig ist
+									</li>
+								</ul>
+							</div>
+
+							<div class="column">
+								<div class="r-stack">
+									<img src="images/statischeSysteme-0.svg" width="95%">
+									<img class="fragment" data-fragment-index="1" src="images/statischeSysteme.svg" width="95%">
+								</div>
+							</div>
+						</div>
+
+					</section>
+
+					<section>
+						<h4>Erdwiderlager - freie Auflagerung</h4>
+
+						<div class="r-stack">
+							<img src="images/EAB_2021-EB80-1.jpg" width="70%">
+						</div>
+						<p class="right-align">
+							<small style="display: block; margin-top: -40px;">(EAB, 2021)</small>
+						</p>
+						<span style="font-size: 30px; display: block; margin-top: -20px;">Fall (a) und (b) bei grobkörnigen Böden<br>
+						Fall (c) bei mind. steifen feinkörnigen Böden
+						</span>
+					</section>
+
+					<section>
+						<h4>Erdwiderlager - Einspannung</h4>
+						<div class="columns">
+							<div class="custom-column30">
+								<br>
+								<div class="r-stack">
+									<img src="images/EAB_2021-EB26-2-klein.jpg" width="100%">
+								</div>
+								<p class="right-align">
+									<small>(EAB, 2021)</small>
+								</p>
+							</div>
+							<div class="column">
+								<span style="font-size: 30px;">Bedingungen für volle Einspannung</span>
+								<ul style="font-size: 30px;">
+									<li>nicht bei weichen bindigen Böden </li>
+									<li>ausreichend tiefe Einbindung ($\Delta t = 0.2\cdot t_1$)</li>
+									<li>Mobilisierung der Ersatzkraft $C$</li>
+									<ul>
+										<li>Spundwände: i.d.R. mind. mitteldicht gelagerte nichtbindige Böden und bei mind. steife bindige Böden</li>
+										<li>Trägerbohlwände: unter Umständen analog zu Spundwänden, aber Sonderregeln beachten</li>
+										<li>Ortbetonwände: nur bei stark nachgiebiger Stützung</li>
+									</ul>
+								</ul>
+								<br>
+								<br>
+							</div>
+						</div>
+
+					</section>
+
+					<section>
+						<h4>Wie beeinflusst eine größere Einbindetiefe das Tragverhalten einer Baugrubenwand (Erdwiderlager)?</h4>
+						<br>
+
+						<center>
+							<div class="poll" data-poll="approval">
+								<button data-value="1">Das maximale Biegemoment bei Einspannung wird kleiner</button>
+								<br>
+								<button data-value="2">Die horizontalen Verformungen der Baugrubenwand werden größer</button>
+								<br>
+								<button data-value="3">Die Auflagerreaktion der Verankerung wird größer</button>
+								<br>
+							</div>
+						</center>
+						<br>
+						<p style="font-size:24px;color:gray;">Antworten: <span class="voters" data-poll="approval">0</span></p>
+
+					</section>
+
+					<section>
+						<h4>Welche Bemessungssituation sollten wir i.d.R. für Baugrubenwände anwenden?</h4>
+
+						<div style="height:480px">
+							<canvas data-chart="pie" data-poll="approval">
+							, Biegemoment, Verformungen, Auflagerkraft
+							, 0, 0, 0
+							</canvas>
+						</div>
+					</section>
+
+					<section>
+						<h4>Effekt der Einbindelänge/des Erdwiderlagers</h4>
+
+						<div class="r-stack">
+							<img src="images/Kolymbas-VergleichWiderlager-0.jpg" width="90%">
+							<img class="fragment" data-fragment-index="1" src="images/Kolymbas-VergleichWiderlager.jpg" width="90%">
+						</div>
+						<p class="right-align">
+							<small>(Kolymbas, 2019)</small>
+						</p>
+
+					</section>
+
+				</section>
+
+
+				<section>
+
+					<section>
+						<h3>Versagensmechanismen und statische Nachweise</h3>
+
+					</section>
+
+					<section>
+						<h4>Versagensmechanismen</h4>
+						<div class="r-stack">
+							<img src="images/Versagensmechanismen.svg" width="55%">
+						</div>
+
+					</section>
+
+					<section>
+						<h4>Nachweisführung an Baugrubenwänden</h4>
+						<h4>Regelwerke</h4>
+						<ul style="font-size: 35px;">
+							<li>Eurocode 7 (Teil 1)</li>
+							<li>DIN 1054: Sicherheitsnachweise im Erd- und Grundbau</li>
+							<li>DIN 4085: Berechnung des Erddrucks</li>
+							<li>Empfehlungen der Deutschen Gesellschaft für Geotechnik</li>
+							<ul>
+								<li>Empfehlungen der Arbeitskreise „Baugruben“ EAB, 6. Auflage 2021 </li>
+								<li>Empfehlungen der Arbeitskreise „Ufereinfassungen“ EAU , 12. Auflage 2020 </li>
+							</ul>
+						</ul>
+
+					</section>
+
+					<section>
+						<h4>Nachweisführung an Baugrubenwänden</h4>
+						<h4>Grenzzustände</h4>
+						<ul style="font-size: 35px;">
+							<li>GEO-2: gemeinsames Versagen des Baugrunds und des Bauteils</li>
+							<li>GEO-3: Gesamtstandsicherheit (Geländebruch)</li>
+							<li>HYD: hydraulischer Grundbruch und Piping</li>
+							<li>STR: Versagen eines Bauteils</li>
+							<li>SLS: Nachgeben des Stützbauwerks</li>
+							<li>weitere Grenzzustände (z.B. unzulässige Leckagen durch die Wand)</li>
+						</ul>
+
+					</section>
+
+					<section>
+						<h3>Nachweisführung an Baugrubenwänden</h3>
+						<h4>Versagen des Erdwiderlagers (GEO-2)</h4>
+						<div class="r-stack">
+							<img src="images/EC7-1_Versagen-Verdrehen-alle.jpg" width="60%">
+						</div>
+						<p class="right-align" style="display: block; margin-top: -40px;">
+							<small>(DIN EN 1997-1)</small>
+						</p>
+
+
+					</section>
+
+					<section>
+						<h3>Nachweisführung an Baugrubenwänden</h3>
+						<h4>Versagen des Erdwiderlagers (GEO-2)</h4>
+						<div class="r-stack">
+							<img src="images/EC7-1_Versagen-Versinken.jpg" width="40%">
+						</div>
+						<p class="right-align" style="display: block; margin-top: -40px;">
+							<small>(DIN EN 1997-1)</small>
+						</p>
+
+					</section>
+
+					<section>
+						<h3>Nachweisführung an Baugrubenwänden</h3>
+						<h4>Versagen des Erdwiderlagers (GEO-2)</h4>
+						<img src="images/EC7-1_Versagen-STR-1.jpg" width="40%">
+						<img src="images/EC7-1_Versagen-STR-2.jpg" width="40%">
+						<img src="images/EC7-1_Versagen-STR-3.jpg" width="40%">
+
+						<p class="right-align" style="display: block; margin-top: -50px;">
+							<small>(DIN EN 1997-1)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</small>
+						</p>
+
+					</section>
+
+					<section>
+						<h3>Nachweisführung an Baugrubenwänden</h3>
+						<h4>Grenzzustände nach GEO-2</h4>
+						<ul style="font-size: 35px;">
+							<li>Versagen bodengestützter Wände durch Drehung <br>
+							(früher: Versagen des Erdwiderlagers) <br>
+							&#10137; ausreichende Einbindetiefe</li>
+							<li>Versagen bodengestützter Wände durch Vertikalbewegung <br>
+							(früher: Versinken von Bauteilen)</li>
+							<li>Nachweis der Vertikalkomponente des mobilisierten Erdwiderstands <br>
+							(früher: Mobilisierung des Wandreibungswinkels)<br>
+							&#10137; vertikales Kräftegleichgewicht</li>
+							<li>Versagen von Verankerungen <br>
+							(Herausziehen von Ankern, Standsicherheit in der tiefen Gleitfuge)</li>
+						</ul>
+
+					</section>
+
+					<section>
+						<h4>Versagen bodengestützter Wände durch Drehung</h4>
+						<br>
+
+						<div class="columns">
+							<div class="custom-column60">
+								<img src="images/Ziegler-Erdwiderlager.jpg" width="95%">
+								<p class="right-align">
+									<small>(Ziegler, 2012)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</small>
+								</p>
+							</div>
+
+							<div class="column" style="font-size: 30px;">
+								Beanspruchungen <br>
+								$B_{h,d} = B_{gh,k} \cdot \gamma_{G} + B_{qh,k} \cdot \gamma_{Q} + B_{w,k} \cdot \gamma_{G}$ <br><br>
+								Widerstand <br>
+								$R_d = (E_{ph,k} / \eta_p ) / \gamma_{Ep}$ <br><br>
+								Nachweis<br>
+								$B_{h,d} \le R_d$  <br><br>
+								$\eta_p$ ... Abminderung passiver Erddruck
+							</div>
+						</div>
+
+					</section>
+
+					<section>
+						<h4>Nachweis der Vertikalkräfte</h4>
+
+						<span style="font-size: 30px;">Neigung der Erddruckkraft $\delta$</span>
+						<ul style="font-size: 30px;">
+							<li>für den passiven (stützenden) Erddruck ist ein kleines $\delta$ vorteilhaft <br>
+							&#10137; bessere Ausnutzung des Erdwiderstandes</li>
+							<li>für den aktiven (belastenden) Erddruck ist ein großes $\delta$ vorteilhaft <br>
+							&#10137; geringere horizontale Einwirkung</li>
+							<li>Annahme von $\delta$ — nicht automatisch auf der sicheren Seite</li>
+							<br>
+
+							<li><b>Nachweis der Vertikalkomponente des mob. Erdwiderstands</b></li>
+							<ul>
+								<li>Vernachlässigung der Spitzendruckkraft und der Kontaktreibung</li>
+								<li>nur charakteristische Werte</li>
+							</ul>
+
+							<li><b>Versagen bodengestützter Wände durch Vertikalbewegung</b></li>
+							<ul>
+								<li>inkl. aller angreifender Kräfte</li>
+								<li>mit Teilsicherheitsbeiwerten</li>
+							</ul>
+						</ul>
+
+					</section>
+
+
+					<section>
+						<h4>Nachweis der Vertikalkomponente des mob. Erdwiderstands</h4>
+
+						<div class="columns">
+							<div class="custom-column30">
+								<div class="r-stack">
+									<img src="images/Vertikalkraefte-0.svg" width="90%">
+									<img class="fragment" data-fragment-index="1" src="images/Vertikalkraefte.svg" width="90%">
+								</div>
+							</div>
+
+							<div class="column" style="font-size: 30px;">
+								<div class="fragment" data-fragment-index="1" >
+									<b>Vereinfachter Nachweis (EAB, 2021)</b><br><br>
+									Beanspruchungen <br>
+									$V_k = E_{av,k} + G_{k} + A_{v,k} + C_{v,k} + P_{v,k}$ <br>
+									mit: $C_{v,k} = C_{h,k} \tan \delta_{c,k} $
+									<br><br>
+									Widerstand <br>
+									$B_{v,k} = B_{h,k} \tan \delta_{p,k}$  <br><br>
+									Nachweis<br>
+									$B_{v,k} \le V_k$  <br><br>
+									i.d.R. $\delta_{c,k} \le \frac{1}{3} \varphi_k'$
+								</div>
+							</div>
+						</div>
+
+					</section>
+
+					<section>
+						<h4>Nachweis der Vertikalkomponente des mob. Erdwiderstands</h4>
+
+						<div class="columns">
+							<div class="custom-column30">
+								<img src="images/Vertikalkraefte.svg" width="90%">
+							</div>
+
+							<div class="column" style="font-size: 30px;">
+								<b>Genauer Nachweis (EAB, 2021) </b><br><br>
+								Beanspruchungen <br>
+								$V_k = E_{av,k} + G_{k} + A_{v,k} + 0.5 \cdot C_{v,k} + P_{v,k}$ <br>
+								mit: $C_{v,k} = C_{h,k} \tan \delta_{c,k} $
+								<br><br>
+								Widerstand <br>
+								$R_k = ( B_{h,k} - 0.5 \cdot C_{h,k} ) \tan \delta_{p,k}$  <br><br>
+								Nachweis<br>
+								$B_{v,k} \le V_k$  <br><br>
+								i.d.R. $\delta_{c,k} \le \frac{1}{3} \varphi_k'$
+							</div>
+						</div>
+
+					</section>
+
+
+					<section>
+						<h4>Versagen bodengestützter Wände durch Vertikalbewegung</h4>
+
+						<div class="columns">
+							<div class="custom-column30">
+								<img src="images/Vertikalkraefte.svg" width="90%">
+							</div>
+
+							<div class="column" style="font-size: 30px;">
+								<b>Nachweis (EAB, 2021) </b><br><br>
+								Beanspruchungen <br>
+								$V_d = \sum V_{G,k} \cdot \gamma_G + \sum V_{Q,k} \cdot \gamma_Q$
+								<br><br>
+								Widerstand <br>
+								$R_d = ( B_{v,k} + R_{b,k} ) / \gamma_{R,e}$ ... oder  <br>
+								$R_d = ( R_{s,k} + R_{b,k} ) / \gamma_p$  <br><br>
+								Nachweis<br>
+								i.d.R. $\delta_{c,k} \le \frac{1}{3} \varphi_k'$
+							</div>
+						</div>
+
+					</section>
+
+					<section>
+						<h4>Standsicherheit in der tiefen Gleitfuge</h4>
+						<div class="columns">
+							<div class="custom-column">
+								<div class="r-stack">
+									<img src="images/Ziegler-tiefeGleitfuge-FKB-small-0.jpg" width="90%">
+									<img class="fragment" data-fragment-index="1" src="images/Ziegler-tiefeGleitfuge-FKB-small.jpg" width="90%">
+								</div>
+							</div>
+
+							<div class="column">
+								<div class="r-stack">
+									<img class="fragment" data-fragment-index="1" src="images/Ziegler-tiefeGleitfuge-FKB-small-2.jpg" width="55%">
+								</div>
+							</div>
+						</div>
+						<p class="right-align">
+							<small>(Ziegler, 2012)</small>
+						</p>
+
+					</section>
+
+					<section>
+						<h4>Standsicherheit in der tiefen Gleitfuge</h4>
+						<p style="font-size: 35px;">
+
+						Nachweis nach EAB (2021):
+						\[ A_{\text{mögl,d}} \le A_{\text{vorh,d}}
+						\]
+
+						$A_{\text{mögl,d}} = A_{\text{mögl,k}}/\gamma_{R,e}$ <br>
+						$A_{\text{vorh,d}} = A_{\text{G,k}} \cdot \gamma_{G} + A_{\text{Q,k}} \cdot \gamma_{Q}$ <br><br>
+						$A_{\text{mögl,k}}$ ... obere Grenze für die vorhandene Ankerbeanspruchung, abhängig vom Ankerabstand
+						</p>
+
+					</section>
+
+
+					<section>
+						<h4>Standsicherheit in der tiefen Gleitfuge <br>
+						<span style="font-size: 30px; font-weight: normal;">Kolymbas (2019)</span>
+						</h4>
+						<div class="columns">
+							<div class="custom-column">
+								<div class="r-stack">
+									<img src="images/Kolymbas-tiefeGleitfuge-0.jpg" width="100%">
+									<img class="fragment" data-fragment-index="1" src="images/Kolymbas-tiefeGleitfuge.jpg" width="95%">
+								</div>
+							</div>
+
+							<div class="column">
+								<div class="r-stack">
+									<img class="fragment" data-fragment-index="1" src="images/Kolymbas-tiefeGleitfuge-Krafteck.jpg" width="90%">
+								</div>
+							</div>
+						</div>
+						<p style="font-size: 30px;">
+						Nachweis über die Mobilisierung des Reibungswinkels:
+						\[ \eta = \tan \varphi_{\text{vorh}} / \tan \varphi_{\text{erf}} \ge 1
+						\]
+						</p>
+
+					</section>
+
+					<section>
+						<h4>Welche Bemessungssituation sollten wir i.d.R. für Baugrubenwände anwenden?</h4>
+						<br>
+
+						<center>
+							<div class="poll" data-poll="approval">
+								<button data-value="1">BS-P</button>
+								<br>
+								<button data-value="2">BS-T</button>
+								<br>
+								<button data-value="3">BS-A</button>
+								<br>
+							</div>
+						</center>
+						<br>
+						<p style="font-size:24px;color:gray;">Antworten: <span class="voters" data-poll="approval">0</span></p>
+
+					</section>
+
+					<section>
+						<h4>Welche Bemessungssituation sollten wir i.d.R. für Baugrubenwände anwenden?</h4>
+
+						<div style="height:480px">
+							<canvas data-chart="pie" data-poll="approval">
+							, BS-P, BS-T, BS-A
+							, 0, 0, 0
+							</canvas>
+						</div>
+					</section>
+
+					<section>
+						<h4>Bemessungssituationen für Baugrubenwände </h4>
+
+						<ul style="font-size: 30px;">
+							<li>i. d. R. sind die Teilsicherheitsbeiwerte der BS‑T anzusetzen. </li>
+							<li>Höhere Ansprüche an Gebrauchstauglichkeit  &#10137;  Teilsicherheitsbeiwerte der BS‑P oder Verformungsprognose </li>
+							<li>Außerdem wird BS-P maßgeblich bei</li>
+							<ul>
+								<li>Nachweise tiefe Gleitfuge &amp; Geländebruch <em>neben bestehenden Bauwerken</em></li>
+								<li>Aussteifungen</li>
+								<li>Verankerungen im Vollaushubzustand</li>
+							</ul>
+							<li>BS‑A wenn erforderlich, z.B. Anprall, Ausfall von Tragelementen, ... </li>
+						</ul>
+					</section>
+
+
+					<section>
+						<h4>GEO-3: Geländebruchsicherheit</h4>
+						<br>
+						<img src="images/EAB_2021-EB45-1-1.jpg" width="45%"><img src="images/EAB_2021-EB45-1-2.jpg" width="45%">
+						<p class="right-align" style="display: block; margin-top: -50px;">
+							<small>(EAB, 2021)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+							</small>
+						</p>
+						<ul style="font-size: 30px;">
+							<li>im Grenzzustand GEO-3 zu führen</li>
+							<li>Nachweis über Vergleich einwirkender und widerstehender Momente: $E_{M,d} \le R_{M,d}$ <br>
+							&#10137; siehe LV Bodenmechanik</li>
+							<li>i.d.R. Nachweis tiefe Gleitfuge maßgebend</li>
+						</ul>
+					</section>
+
+					<section>
+						<h4>SLS: Nachweis der Gebrauchstauglichkeit</h4>
+
+						<div class="r-stack">
+							<img src="images/Peck_1969.png" width="80%">
+						</div>
+						<p class="right-align" style="display: block; margin-top: -40px;">
+							<small>(Peck, 1969)</small>
+						</p>
+
+					</section>
+
+					<section>
+						<h4>Verformungsstudien</h4>
+
+						<img src="images/Mohrmann_2004_fig1.png" width="40%">&nbsp;&nbsp;&nbsp;
+						<img src="images/Mohrmann_2004_fig11.png" width="50%">
+						<p class="right-align" style="display: block; margin-top: -40px;">
+							<small>(Mohrmann, 2004)</small>
+						</p>
+
+					</section>
+
+					<section>
+						<h4>SLS: Nachweis der Gebrauchstauglichkeit</h4>
+
+						<ul style="font-size: 30px;">
+							<li>bei mindestens mitteldichtem nichtbindigen oder steifem bindigen Boden <br>
+							&#10137; ausreichende Gebrauchstauglichkeit durch statische Bemessung im ULS implizit gewährleistet</li>
+							<li>nur im Ausnahmefall durch besondere Verformungsberechnungen erforderlich</li>
+							<ul>
+								<li>Baugruben neben sehr hohen oder sehr empfindlichen Bauwerken oder Leitungen</li>
+								<li>Baugruben neben Nachbarbebauung in weichen bindigen Böden.</li>
+							</ul>
+							<li>Methoden zur Abschätzung von Verformungen</li>
+							<ul>
+								<li>wenn nur horizontale Verformungen der Wand gefragt sind: Bettungsmodulverfahren<br>
+								&#10137; siehe Modul Spezialtiefbau </li>
+								<li>empirische Methoden, z.B. Peck (1969), Long (2001), Mohrmann (2004)</li>
+								<li>bei komplexen Situationen und Anforderungen: numerische Methoden, z.B. FEM<br>
+								&#10137; siehe Modul Numerische Methoden in der Geotechnik </li>
+
+							</ul>
+						</ul>
+
+					</section>
+
+				</section>
+
+				<section>
+
+					<section>
+						<h4>Prognosewettbewerb (von Wolffersdorf, 1994)</h4>
+						<br>
+
+						<div class="columns">
+							<div class="custom-column60">
+								<div class="r-stack">
+									<img src="images/vonWolffersdorff-1997.png" width="90%">
+								</div>
+							</div>
+
+							<div class="column">
+								<ul style="font-size: 30px;">
+									<li>Spundwand in Hochstetten </li>
+									<li>Sand in mitteldichter Lagerung </li>
+									<li>oberhalb des Grundwassers</li>
+									<li>Tiefe 5m, Oberflächenlast </li>
+								</ul>
+							</div>
+						</div>
+
+					</section>
+
+					<section>
+						<h4>Prognosewettbewerb (von Wolffersdorf, 1994)</h4>
+
+						<div class="r-stack">
+							<img src="images/vonWolffersdorff-1997-messung.jpg" width="60%">
+						</div>
+
+						<div class="r-stack">
+							<img class="fragment"  src="images/vonWolffersdorff-1997-prognose.jpg" width="60%">
+						</div>
+
+					</section>
+
+				</section>
+
+
+				<section>
+
+					<section>
+						<h3>Weitere Themen</h3>
+
+					</section>
+
+					<section>
+						<h4>Aufgelöste Wände</h4>
+						<br>
+
+						<div class="columns">
+							<div class="custom-column60">
+								<div class="r-stack">
+									<img src="images/Kolymbas-Traegerbohlwand.jpg" width="90%">
+								</div>
+							</div>
+
+							<div class="column" style="font-size: 30px;">
+								z.B. <b> Trägerbohlwand</b>
+								<ul >
+									<li>Fußauflagerkraft am Einzelträger <br>
+									&#10137; räumlicher passiver Erddruck </li>
+									<li>bei kleinen Trägerabständen <br>
+									&#10137; ebener Erdwiderstand</li>
+								</ul>
+							</div>
+						</div>
+					</section>
+
+					<section>
+						<h4>Räumlicher Erddruck vor Trägern</h4>
+
+						<span style="font-size: 30px;">
+						\[ E_{ph,k,3D} = \frac{1}{2} \gamma~ \omega_R ~t^3 + 2 ~c ~\omega_K ~t^2
+						\]
+						</span>
+
+						<img src="images/Achmus-2008-Waende-1.jpg" width="25%"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						<img src="images/Achmus-2008-Waende-2.jpg" width="60%">
+						<p class="right-align" style="display: block; margin-top: -40px;">
+							<small>(Achmus, 2008)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+							</small>
+						</p>
+
+
+					</section>
+
+					<section>
+						<h4>Zweifach gestützte Trägerbohlwand - Erddruckumlagerung</h4>
+
+						<span style="font-size: 30px;">
+							$e_{ho,k} = 2.0~e_{hu,k} $
+						</span>
+
+						<img src="images/EAB_2021-EB69-3.jpg" width="85%">
+						<p class="right-align" style="display: block; margin-top: -40px;">
+							<small>(EAB, 2021)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</small>
+						</p>
+
+					</section>
+
+					<section>
+						<h4>Zweifach gestützte Spund- und Ortbetonwände - Erddruckumlagerung</h4>
+
+						<span style="font-size: 30px;">
+							$e_{ho,k} = 1.5~e_{hu,k} $
+						</span>
+
+						<img src="images/EAB_2021-EB70-2.jpg" width="85%">
+						<p class="right-align" style="display: block; margin-top: -40px;">
+							<small>(EAB, 2021)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</small>
+						</p>
+
+
+					</section>
+
+					<section>
+						<h4>Bauzustände einer mehrfach verankerten Stützwand</h4>
+
+						<div class="r-stack">
+							<img src="images/Kolymbas2019-Bauzustaende-0.jpg" width="60%">
+							<img class="fragment" src="images/Kolymbas2019-Bauzustaende-1.jpg" width="60%">
+							<img class="fragment" src="images/Kolymbas2019-Bauzustaende-2.jpg" width="60%">
+							<img class="fragment" src="images/Kolymbas2019-Bauzustaende-3.jpg" width="60%">
+							<img class="fragment" src="images/Kolymbas2019-Bauzustaende.jpg" width="60%">
+						</div>
+						<p class="right-align" style="display: block; margin-top: -40px;">
+							<small>(Kolymbas, 2019)</small>
+						</p>
+
+					</section>
+
+				</section>
+
+				<section>
+					<h4>Zusammenfassung</h4>
+
+					<ul>
+						<li></li>
+					</ul>
+
+				</section>
+
+				<section>
+					<h4>Literaturempfehlungen</h4>
+					<ul style="font-size: 25px;">
+						<li>Achmus, M. (2012). Schäden bei Baugrubensicherungen. Fraunhofer-IRB-Verlag. </li>
+						<li>Ziegler, M. (2012). Geotechnische Nachweise nach EC 7 und DIN 1054 - Eine Einführung in Beispielen.</li>
+						<li>Schmidt et al, (2016). Grundlagen der Geotechnik - Geotechnik nach Eurocode. </li>
+						<li>Kolymbas, D. (2019). Geotechnik - Bodenmechanik, Grundbau und Tunnelbau. </li>
+					</ul>
+
+					<br><br>
+					<h4>zus. Quellen</h4>
+					<ul style="font-size: 25px;">
+						<li>Peck, R. (1969). Deep excavations and tunnelling. State-of-the-Art. Proc.VII.ICSMFE Mexico City, S. 225-290.</li>
+						<li>Long, M. (2001). Database for retaining wall and ground movements due to deep excavations. Journal of Geotechnical and Geoenvironmental Engineering 127. No 3.</li>
+						<li>Moormann, C. (2004). Analysis of wall and ground movements due to deep excavations in soft soil based on a new worldwide database. Soils and foundations, 44(1), 87-98.</li>
+						<li>Achmus, M. (2008). Bodenmechanik und Grundbau - Grundlagen und Konzepte. Mitteilungen des Institutes für Grundbau, Bodenmechanik und Energiewasserbau, Leibniz Universität Hannover. </li>
+					</ul>
+
+				</section>
+
+				
+				
+			</div>
+		</div>
+
+		<script src="../reveal.js/dist/reveal.js"></script>
+		<script src="../reveal.js/plugin/notes/notes.js"></script>
+		<script src="../reveal.js/plugin/markdown/markdown.js"></script>
+		<script src="../reveal.js/plugin/highlight/highlight.js"></script>
+		<script src="../reveal.js/plugin/math/math.js"></script>
+		<script>
+			// Variable tracking whether slide deck is connected to seminar server
+			let isConnected = false;
+			
+			// document.getElementById('pdf-link').href = getURL() + '?print-pdf';
+			
+			// More info about initialization & config:
+			// - https://revealjs.com/initialization/
+			// - https://revealjs.com/config/
+			Reveal.initialize({
+				width: 1200,
+				height: 700,
+				margin: 0.1,
+				hash: true,
+				// Vertical centering of slides
+				center: true,
+				progress: true,
+				slideNumber: "h.v",
+				dependencies: [
+					{ src: '../reveal.js/plugin/toolbar/toolbar.js' },
+				],
+				menu: {
+					themes: false,
+					transitions: false,
+					markers: true,
+					hideMissingTitles: true,
+					custom: [
+						{ title: 'Broadcast', icon: '<i class="fas fa-rss">', content: getSeminarMenu() }
+					]
+				},
+				customcontrols: {
+					controls: [
+						{ icon: '<i class="fa fa-pen-square"></i>',
+							title: 'Toggle chalkboard (B)',
+							action: 'RevealChalkboard.toggleChalkboard();'
+						},
+						{ icon: '<i class="fa fa-pen"></i>',
+							title: 'Toggle notes canvas (C)',
+							action: 'RevealChalkboard.toggleNotesCanvas();'
+						},
+						{
+							icon: '<span class="fa-stack" style="margin: -24px -12px;padding:0;"><span class="fa-solid fa-comment fa-stack-1x"></span><strong class="fa-stack-1x fa-inverse qna question-counter" style="font-size:0.5em;"></strong></span>',
+							title: 'Toggle Q&A dashboard (Q)',
+							action: 'RevealQnA.toggleQnA();'
+						},
+					]
+				},
+				toolbar: {
+							position: 'top',
+							fullscreen: true,
+				},
+				chalkboard: {
+					// add configuration here
+					storage: "WeimarLecture",
+					//src: "chalkboard.json",
+					theme: "whiteboard",
+				},
+				seminar: {
+					// add configuration here
+					// server: 'https://cheerful-partner.glitch.me/', // change server as necessary
+					// server: 'http://localhost:4433',
+					server: 'https://mighty-shiny-lungfish.glitch.me/',
+					room: 'Max', // put your room name here
+					hash: '$2a$05$GI.kICRbH3IZZJTZXHTJauB0G9jrLAZef3GCHxL060IlVbsA9ea/W', // a hash is required for every seminar room and can be generated on the URL of the socket.io server
+					autoJoin: true, // set to true to automatically join the seminar room
+					logger: seminarStatusLogger
+				},
+				chart: {
+					defaults: {
+						color: 'black', // color of labels
+						scale: {
+							beginAtZero: true,
+							ticks: { stepSize: 1 },
+							grid: { color: "lightgray" } , // color of grid lines
+						},
+					},
+					line: { borderColor: [ "rgba(20,220,220,.8)" , "rgba(220,120,120,.8)", "rgba(20,120,220,.8)" ], "borderDash": [ [5,10], [0,0] ] },
+					bar: { backgroundColor: [ "rgba(20,220,220,.8)" , "rgba(220,120,120,.8)", "rgba(20,120,220,.8)" ]},
+					pie: { backgroundColor: [ ["rgba(20,20,220,.8)", "rgba(220,220,20,.8)", "rgba(220,20,20,.8)", "rgba(20,220,20,.8)", "rgba(0,0,0,.8)"] ]},
+				},
+				// Learn about plugins: https://revealjs.com/plugins/
+				plugins: [ RevealMarkdown, 
+									 RevealHighlight, 
+									 RevealNotes, 
+									 RevealMath.KaTeX, 
+									 RevealChalkboard, 
+									 RevealCustomControls, 
+									 RevealSeminar, 
+									 RevealMenu, 
+									 RevealQnA,
+									 RevealPoll,
+									 RevealChart ]
+			}).then(() => {	
+			if ( !isConnected ) {
+				// hide all elements that 
+				var showOnConnected = document.querySelectorAll(".seminar.connected") || [];
+				for (var i=0; i < showOnConnected.length; i++) {
+					showOnConnected[i].style.display = 'none';
+				}
+			}
+	
+			});
+			
+			function getURL(id) {
+				var urlparts= window.location.href.split('#');
+				return urlparts[0];
+			}
+			
+			Reveal.configure({ pdfSeparateFragments: false });
+			
+			/******************************************
+			* Setup of seminar
+			******************************************/
+			function getSeminarMenu() {
+		
+				var seminarMenu = '<p class="slide-menu-item" id="broadcast">'
+					+ '<form>'
+					+ '<table>'
+					+ '<tr><td> User name:</td><td> <input type="text" id="username" style="font-size:80%;" size="13"></td></tr>'
+					+ '<tr><td> Password:</td><td> <input type="password" id="password" style="font-size:80%;" size="13"></td></tr>'
+					+ '</table>'
+					+ '<button id="startSeminar" type="submit" style="margin:10px;">Start</button><button id="stopSeminar"  style="margin:10px;">Stop</button>'
+					+ '</form>'
+					+ '<p>Status log:</p>'
+					+ '<textarea id="logger" spellcheck="false" readonly style="width:100%;height:calc(100% - 180px);background-color:black;color:white;">Trying to connect to server ...\n</textarea>'
+					+ '</p>';
+				return seminarMenu;
+			}
+		
+			function initSeminarMenu() {
+				var element = document.getElementById('broadcast');
+				if ( element ) {
+					// make sure that events are not propagated
+					element.parentElement.addEventListener('keydown', consumeBroadcastEvent );
+		
+					var startButton = document.getElementById('startSeminar');
+					if ( startButton ) {
+						startButton.addEventListener('click', function(evt) {
+							evt.preventDefault();
+							RevealSeminar.open_or_join_room(document.getElementById('password').value, (document.getElementById('username') || {}).value || 'Lecturer');
+						});
+					}
+		
+					var stopButton = document.getElementById('stopSeminar');
+					if ( stopButton ) {
+						stopButton.addEventListener('click', function(evt) {
+							evt.preventDefault();
+							if ( confirm("Are you sure you want to close the seminar for all participants?") ) {
+								RevealSeminar.close_room(document.getElementById('password').value);
+							}
+						});
+					}
+		
+				}
+				else {
+					setTimeout( initSeminarMenu, 100 );
+				}
+			}
+		
+			function consumeBroadcastEvent( evt ) {
+				evt.stopPropagation();
+			}
+		
+			function seminarStatusLogger( message ) {
+				if ( !isConnected ) {
+					// hide elements that are only displayed when not connected
+					var showOnDisconnected = document.querySelectorAll(".seminar.disconnected") || [];
+					for (var i=0; i < showOnDisconnected.length; i++) {
+						showOnDisconnected[i].style.display = "none";
+					}
+		
+					// show elements that are only displayed when connected
+					var showOnConnected = document.querySelectorAll(".seminar.connected") || [];
+					for (var i=0; i < showOnConnected.length; i++) {
+						showOnConnected[i].style.display = '';
+					}
+					isConnected = true;
+				}
+				var element = document.getElementById('logger');
+				if ( element ) {
+					while ( (element.value.match(/\n/g) || []).length >= 10 ) {
+						// Limit number of lines in log to 10
+						element.value = element.value.substring(element.value.indexOf("\n") + 1);
+					};
+					element.value += '> ' + message + '\n';
+				}
+			}
+		
+			initSeminarMenu();
+			
+			/******************************************
+			* Create QR-Code
+			******************************************/
+			function initQRCode() {
+				var QRCodeElement = document.getElementById('qrcode');
+				if ( QRCodeElement ) {
+					const qrCode = new QRCodeStyling({
+						type: "svg",
+						width: 300,
+						height: 300,
+						data: getURL(),
+						//image: "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjIiIGhlaWdodD0iNTYiIHZpZXdCb3g9IjAgMCA2MiA1NiIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZmlsbC1ydWxlPSJldmVub2RkIiBjbGlwLXJ1bGU9ImV2ZW5vZGQiIGQ9Ik01OSA0Mi41ODQ1TDU5IDE0LjEzODRMMTIgMy43MzY1NEwxMiA1Mi4zMTUzTDU5IDQyLjU4NDVaTTYwLjQwNTUgNDUuMzU3MkM2MS4zMzQxIDQ1LjE2NDkgNjIgNDQuMzQ3IDYyIDQzLjM5ODdMNjIgMTMuMzM1NUM2MiAxMi4zOTc1IDYxLjM0ODEgMTEuNTg1NSA2MC40MzIyIDExLjM4MjhMMTEuNDMyMiAwLjUzODI4NUMxMC4xODM2IDAuMjYxOTU2IDkgMS4yMTIyNSA5IDIuNDkxMDNMOC45OTk5OSA1My41NDM1QzguOTk5OTkgNTQuODExMSAxMC4xNjQyIDU1Ljc1OSAxMS40MDU1IDU1LjUwMkw2MC40MDU1IDQ1LjM1NzJaIiBmaWxsPSIjRDUzRjhDIi8+CjxwYXRoIGQ9Ik0wIDEyLjYwMTNDMCAxMS42NTMgMC42NjU5MzMgMTAuODM1MSAxLjU5NDUyIDEwLjY0MjhMNTAuNTk0NSAwLjQ5ODAxOUM1MS44MzU4IDAuMjQxMDI3IDUzIDEuMTg4ODcgNTMgMi40NTY0OVY1My41MDlDNTMgNTQuNzg3OCA1MS44MTY0IDU1LjczOCA1MC41Njc4IDU1LjQ2MTdMMS41Njc4MyA0NC42MTczQzAuNjUxOTQzIDQ0LjQxNDYgMCA0My42MDI1IDAgNDIuNjY0NVYxMi42MDEzWiIgZmlsbD0iI0YyRTE0MiIvPgo8cGF0aCBkPSJNMTIgMy4wMjkzMkwxMiA1My4wMjUyTDkuMDAwMDEgNTMuMDI1Mkw5LjAwMDAxIDMuMDI5MzJMMTIgMy4wMjkzMloiIGZpbGw9IiNENTNGOEMiLz4KPC9zdmc+Cg==",
+						dotsOptions: {
+								color: "var(--r-link-color-dark)",
+								type: "dots"
+						},
+						backgroundOptions: {
+								color: "white",
+						},
+						//imageOptions: {
+						//		crossOrigin: "anonymous",
+						//		margin: 10
+						//},
+						cornersSquareOptions: {
+								color: "#000000",
+								type: "dots"
+						},
+						cornersDotOptions: {
+								color: "#000000",
+								type: "dot"
+						}
+					});
+					qrCode.append(QRCodeElement);
+				}
+				var urlElement = document.getElementById('url');
+				if ( urlElement ) {
+					urlElement.innerHTML = getURL();
+						urlElement.href = getURL();
+				}
+		
+			}
+		
+			initQRCode();
+			
+		</script>		
+</html>
+	</body>
+

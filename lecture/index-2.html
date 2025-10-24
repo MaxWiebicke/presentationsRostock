@@ -1,0 +1,359 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>Bemessung von verankerten Baugrubensicherungen</title>
+
+		<link rel="stylesheet" href="../reveal.js/dist/reset.css">
+		<link rel="stylesheet" href="../reveal.js/dist/reveal.css">
+		<link rel="stylesheet" href="../reveal.js/dist/theme/white.css">
+
+		<!-- Theme used for syntax highlighted code -->
+		<link rel="stylesheet" href="../reveal.js/plugin/highlight/monokai.css">
+		
+		<!-- Font awesome is required for the chalkboard plugin -->
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+		<!-- Custom controls plugin is used to for opening and closing annotation modes. -->
+		<script src="https://cdn.jsdelivr.net/npm/reveal.js-plugins@latest/customcontrols/plugin.js"></script>
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js-plugins@latest/customcontrols/style.css">
+		<!-- Chalkboard plugin -->
+		<script src="https://cdn.jsdelivr.net/npm/reveal.js-plugins@latest/chalkboard/plugin.js"></script>
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js-plugins@latest/chalkboard/style.css">
+		
+		<!-- Seminar plugin -->
+		<script src="https://cdn.jsdelivr.net/npm/reveal.js-plugins@latest/seminar/plugin.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.6.1/socket.io.js"></script>
+		
+		<!-- Menu plugin -->
+		<script src="https://cdn.jsdelivr.net/npm/reveal.js-menu@2.1.0/menu.js"></script>
+		<link href=" https://cdn.jsdelivr.net/npm/reveal.js-menu@2.1.0/menu.css " rel="stylesheet">
+		
+		<!-- Questions plugin requires seminar plugin -->
+		<script src="https://cdn.jsdelivr.net/npm/reveal.js-plugins@latest/questions/plugin.js"></script>
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js-plugins@latest/questions/style.css">
+		
+		<!-- Poll plugin requires seminar plugin -->
+		<script src="https://cdn.jsdelivr.net/npm/reveal.js-plugins@latest/poll/plugin.js"></script>
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js-plugins@latest/poll/style.css">
+		
+		<!-- Chart plugin -->
+		<script src="https://cdn.jsdelivr.net/npm/reveal.js-plugins@latest/chart/plugin.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.2.0/chart.min.js"></script>
+		
+		<!-- QR-Codes -->
+		<script type="text/javascript" src="https://unpkg.com/qr-code-styling@1.5.0/lib/qr-code-styling.js"></script>
+		
+		<style>
+		
+		.columns {
+			display: flex;
+			align-items: center;
+		}
+
+		.column {
+			flex: 1;
+			margin: 10px;
+		}
+		
+		.custom-column {
+			width: 70%;
+			/* You can add additional styles as needed */
+		}
+		
+		.left-align {
+    text-align: left;
+		}
+		
+		.reveal section {
+    text-align: left;
+		}
+		
+		.reveal h1, .reveal h2, .reveal h3, .reveal h4, .reveal h5, .reveal h6 {
+    text-transform: none;
+		}
+		
+		/* Style the overlay container */
+		.overlay-container {
+				position: relative;
+		}
+		
+		/* Style the subsequent images and position them slightly to the right */
+		.overlay-container img {
+				position: absolute;
+				top: 0;
+				left: 20px; /* Adjust this value to control the horizontal spacing */
+		}
+		
+		</style>
+		
+	</head>
+	
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<section>
+					<h2>Hydraulischer Grundbruch</h2>
+					Modul: Grundbau  <br>
+					Studiengang: B.Sc. Bauingenieurwesen
+					<br>
+					<br>
+					Max Wiebicke<br><br>
+					<small>Stand: 3. November 2023</small>
+					<div id="qrcode" style="position: absolute; bottom: 0px; right: 0px;"></div>
+					<br>
+					<small><a id="url"></a></small>
+					<!--
+					-->
+
+				</section>
+			</section>
+
+			</div>
+		</div>
+
+		<script src="../reveal.js/dist/reveal.js"></script>
+		<script src="../reveal.js/plugin/notes/notes.js"></script>
+		<script src="../reveal.js/plugin/markdown/markdown.js"></script>
+		<script src="../reveal.js/plugin/highlight/highlight.js"></script>
+		<script src="../reveal.js/plugin/math/math.js"></script>
+		<script>
+			// Variable tracking whether slide deck is connected to seminar server
+			let isConnected = false;
+			
+			// document.getElementById('pdf-link').href = getURL() + '?print-pdf';
+			
+			// More info about initialization & config:
+			// - https://revealjs.com/initialization/
+			// - https://revealjs.com/config/
+			Reveal.initialize({
+				width: 1200,
+				height: 700,
+				margin: 0.1,
+				hash: true,
+				// Vertical centering of slides
+				center: true,
+				progress: true,
+				slideNumber: "h.v",
+				dependencies: [
+					{ src: '../reveal.js/plugin/toolbar/toolbar.js' },
+				],
+				menu: {
+					themes: false,
+					transitions: false,
+					markers: true,
+					hideMissingTitles: true,
+					custom: [
+						{ title: 'Broadcast', icon: '<i class="fas fa-rss">', content: getSeminarMenu() }
+					]
+				},
+				customcontrols: {
+					controls: [
+						{ icon: '<i class="fa fa-pen-square"></i>',
+							title: 'Toggle chalkboard (B)',
+							action: 'RevealChalkboard.toggleChalkboard();'
+						},
+						{ icon: '<i class="fa fa-pen"></i>',
+							title: 'Toggle notes canvas (C)',
+							action: 'RevealChalkboard.toggleNotesCanvas();'
+						},
+						{
+							icon: '<span class="fa-stack" style="margin: -24px -12px;padding:0;"><span class="fa-solid fa-comment fa-stack-1x"></span><strong class="fa-stack-1x fa-inverse qna question-counter" style="font-size:0.5em;"></strong></span>',
+							title: 'Toggle Q&A dashboard (Q)',
+							action: 'RevealQnA.toggleQnA();'
+						},
+					]
+				},
+				toolbar: {
+							position: 'top',
+							fullscreen: true,
+				},
+				chalkboard: {
+					// add configuration here
+					storage: "WeimarLecture",
+					//src: "chalkboard.json",
+					theme: "whiteboard",
+				},
+				seminar: {
+					// add configuration here
+					// server: 'https://cheerful-partner.glitch.me/', // change server as necessary
+					// server: 'http://localhost:4433',
+					server: 'https://mighty-shiny-lungfish.glitch.me/',
+					room: 'Max', // put your room name here
+					hash: '$2a$05$GI.kICRbH3IZZJTZXHTJauB0G9jrLAZef3GCHxL060IlVbsA9ea/W', // a hash is required for every seminar room and can be generated on the URL of the socket.io server
+					autoJoin: true, // set to true to automatically join the seminar room
+					logger: seminarStatusLogger
+				},
+				chart: {
+					defaults: {
+						color: 'black', // color of labels
+						scale: {
+							beginAtZero: true,
+							ticks: { stepSize: 1 },
+							grid: { color: "lightgray" } , // color of grid lines
+						},
+					},
+					line: { borderColor: [ "rgba(20,220,220,.8)" , "rgba(220,120,120,.8)", "rgba(20,120,220,.8)" ], "borderDash": [ [5,10], [0,0] ] },
+					bar: { backgroundColor: [ "rgba(20,220,220,.8)" , "rgba(220,120,120,.8)", "rgba(20,120,220,.8)" ]},
+					pie: { backgroundColor: [ ["rgba(20,20,220,.8)", "rgba(220,220,20,.8)", "rgba(220,20,20,.8)", "rgba(20,220,20,.8)", "rgba(0,0,0,.8)"] ]},
+				},
+				// Learn about plugins: https://revealjs.com/plugins/
+				plugins: [ RevealMarkdown, 
+									 RevealHighlight, 
+									 RevealNotes, 
+									 RevealMath.KaTeX, 
+									 RevealChalkboard, 
+									 RevealCustomControls, 
+									 RevealSeminar, 
+									 RevealMenu, 
+									 RevealQnA,
+									 RevealPoll,
+									 RevealChart ]
+			}).then(() => {	
+			if ( !isConnected ) {
+				// hide all elements that 
+				var showOnConnected = document.querySelectorAll(".seminar.connected") || [];
+				for (var i=0; i < showOnConnected.length; i++) {
+					showOnConnected[i].style.display = 'none';
+				}
+			}
+	
+			});
+			
+			function getURL(id) {
+				var urlparts= window.location.href.split('#');
+				return urlparts[0];
+			}
+			
+			Reveal.configure({ pdfSeparateFragments: false });
+			
+			/******************************************
+			* Setup of seminar
+			******************************************/
+			function getSeminarMenu() {
+		
+				var seminarMenu = '<p class="slide-menu-item" id="broadcast">'
+					+ '<form>'
+					+ '<table>'
+					+ '<tr><td> User name:</td><td> <input type="text" id="username" style="font-size:80%;" size="13"></td></tr>'
+					+ '<tr><td> Password:</td><td> <input type="password" id="password" style="font-size:80%;" size="13"></td></tr>'
+					+ '</table>'
+					+ '<button id="startSeminar" type="submit" style="margin:10px;">Start</button><button id="stopSeminar"  style="margin:10px;">Stop</button>'
+					+ '</form>'
+					+ '<p>Status log:</p>'
+					+ '<textarea id="logger" spellcheck="false" readonly style="width:100%;height:calc(100% - 180px);background-color:black;color:white;">Trying to connect to server ...\n</textarea>'
+					+ '</p>';
+				return seminarMenu;
+			}
+		
+			function initSeminarMenu() {
+				var element = document.getElementById('broadcast');
+				if ( element ) {
+					// make sure that events are not propagated
+					element.parentElement.addEventListener('keydown', consumeBroadcastEvent );
+		
+					var startButton = document.getElementById('startSeminar');
+					if ( startButton ) {
+						startButton.addEventListener('click', function(evt) {
+							evt.preventDefault();
+							RevealSeminar.open_or_join_room(document.getElementById('password').value, (document.getElementById('username') || {}).value || 'Lecturer');
+						});
+					}
+		
+					var stopButton = document.getElementById('stopSeminar');
+					if ( stopButton ) {
+						stopButton.addEventListener('click', function(evt) {
+							evt.preventDefault();
+							if ( confirm("Are you sure you want to close the seminar for all participants?") ) {
+								RevealSeminar.close_room(document.getElementById('password').value);
+							}
+						});
+					}
+		
+				}
+				else {
+					setTimeout( initSeminarMenu, 100 );
+				}
+			}
+		
+			function consumeBroadcastEvent( evt ) {
+				evt.stopPropagation();
+			}
+		
+			function seminarStatusLogger( message ) {
+				if ( !isConnected ) {
+					// hide elements that are only displayed when not connected
+					var showOnDisconnected = document.querySelectorAll(".seminar.disconnected") || [];
+					for (var i=0; i < showOnDisconnected.length; i++) {
+						showOnDisconnected[i].style.display = "none";
+					}
+		
+					// show elements that are only displayed when connected
+					var showOnConnected = document.querySelectorAll(".seminar.connected") || [];
+					for (var i=0; i < showOnConnected.length; i++) {
+						showOnConnected[i].style.display = '';
+					}
+					isConnected = true;
+				}
+				var element = document.getElementById('logger');
+				if ( element ) {
+					while ( (element.value.match(/\n/g) || []).length >= 10 ) {
+						// Limit number of lines in log to 10
+						element.value = element.value.substring(element.value.indexOf("\n") + 1);
+					};
+					element.value += '> ' + message + '\n';
+				}
+			}
+		
+			initSeminarMenu();
+			
+			/******************************************
+			* Create QR-Code
+			******************************************/
+			function initQRCode() {
+				var QRCodeElement = document.getElementById('qrcode');
+				if ( QRCodeElement ) {
+					const qrCode = new QRCodeStyling({
+						type: "svg",
+						width: 300,
+						height: 300,
+						data: getURL(),
+						//image: "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjIiIGhlaWdodD0iNTYiIHZpZXdCb3g9IjAgMCA2MiA1NiIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZmlsbC1ydWxlPSJldmVub2RkIiBjbGlwLXJ1bGU9ImV2ZW5vZGQiIGQ9Ik01OSA0Mi41ODQ1TDU5IDE0LjEzODRMMTIgMy43MzY1NEwxMiA1Mi4zMTUzTDU5IDQyLjU4NDVaTTYwLjQwNTUgNDUuMzU3MkM2MS4zMzQxIDQ1LjE2NDkgNjIgNDQuMzQ3IDYyIDQzLjM5ODdMNjIgMTMuMzM1NUM2MiAxMi4zOTc1IDYxLjM0ODEgMTEuNTg1NSA2MC40MzIyIDExLjM4MjhMMTEuNDMyMiAwLjUzODI4NUMxMC4xODM2IDAuMjYxOTU2IDkgMS4yMTIyNSA5IDIuNDkxMDNMOC45OTk5OSA1My41NDM1QzguOTk5OTkgNTQuODExMSAxMC4xNjQyIDU1Ljc1OSAxMS40MDU1IDU1LjUwMkw2MC40MDU1IDQ1LjM1NzJaIiBmaWxsPSIjRDUzRjhDIi8+CjxwYXRoIGQ9Ik0wIDEyLjYwMTNDMCAxMS42NTMgMC42NjU5MzMgMTAuODM1MSAxLjU5NDUyIDEwLjY0MjhMNTAuNTk0NSAwLjQ5ODAxOUM1MS44MzU4IDAuMjQxMDI3IDUzIDEuMTg4ODcgNTMgMi40NTY0OVY1My41MDlDNTMgNTQuNzg3OCA1MS44MTY0IDU1LjczOCA1MC41Njc4IDU1LjQ2MTdMMS41Njc4MyA0NC42MTczQzAuNjUxOTQzIDQ0LjQxNDYgMCA0My42MDI1IDAgNDIuNjY0NVYxMi42MDEzWiIgZmlsbD0iI0YyRTE0MiIvPgo8cGF0aCBkPSJNMTIgMy4wMjkzMkwxMiA1My4wMjUyTDkuMDAwMDEgNTMuMDI1Mkw5LjAwMDAxIDMuMDI5MzJMMTIgMy4wMjkzMloiIGZpbGw9IiNENTNGOEMiLz4KPC9zdmc+Cg==",
+						dotsOptions: {
+								color: "var(--r-link-color-dark)",
+								type: "dots"
+						},
+						backgroundOptions: {
+								color: "white",
+						},
+						//imageOptions: {
+						//		crossOrigin: "anonymous",
+						//		margin: 10
+						//},
+						cornersSquareOptions: {
+								color: "#000000",
+								type: "dots"
+						},
+						cornersDotOptions: {
+								color: "#000000",
+								type: "dot"
+						}
+					});
+					qrCode.append(QRCodeElement);
+				}
+				var urlElement = document.getElementById('url');
+				if ( urlElement ) {
+					urlElement.innerHTML = getURL();
+						urlElement.href = getURL();
+				}
+		
+			}
+		
+			initQRCode();
+			
+		</script>		
+</html>
+	</body>
+

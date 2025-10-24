@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Bemessungssituationen Baugrubenwände (EAB)</title>
+<!-- Reveal.js core CSS -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5/dist/reveal.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5/dist/theme/white.css" id="theme">
+<style>
+.reveal h4 { font-size: 1rem; }
+.reveal h2 { font-size: 0.9rem; }
+.reveal ul { line-height: 1.25; }
+.tag { display:inline-block; padding:.18rem .5rem; border-radius:999px; font-size:.75rem; font-weight:700; letter-spacing:.02em; vertical-align:middle; }
+.tag-bst { background:#eef6ff; color:#0b61d6; border:1px solid #cfe6ff; }
+.tag-bsp { background:#ecfdf5; color:#047857; border:1px solid #c7f0e3; }
+.tag-bsa { background:#fff7ed; color:#b45309; border:1px solid #ffe2c2; }
+.muted { color:#666; font-size:.8rem; }
+.tight li { margin:.25rem 0; }
+.grid { display:grid; gap:.6rem; }
+.note { font-size:.85rem; }
+</style>
+</head>
+<body>
+<div class="reveal">
+<div class="slides">
+<section>
+<h4>Bemessungssituationen für Baugrubenwände <span class="muted">(nach EAB)</span></h4>
+<div class="grid">
+<h2>
+<span class="tag tag-bst">BS‑T</span> Regelfall (vorübergehende Bemessungssituation)
+</h2>
+<ul class="tight">
+<li>i. d. R. sind die <strong>Teilsicherheitsbeiwerte der BS‑T</strong> anzusetzen.</li>
+</ul>
+
+
+<h2>
+<span class="tag tag-bsp">BS‑P</span> bei erhöhten Anforderungen an die Gebrauchstauglichkeit
+</h2>
+<ul class="tight">
+<li>Setzungen/Verformungen kritisch → <strong>Teilsicherheitsbeiwerte der BS‑P</strong>.</li>
+</ul>
+
+
+<h2 class="note">Zusätzlich <span class="tag tag-bsp">BS‑P</span> in folgenden Fällen</h2>
+<ul class="tight">
+<li>tiefe Gleitfuge &amp; Geländebruch <em>neben bestehenden Bauwerken</em></li>
+<li><em>Steifen</em> (Aussteifungen)</li>
+<li><em>Verankerungen</em> im Vollaushubzustand</li>
+</ul>
+
+
+<h2>
+<span class="tag tag-bsa">BS‑A</span> wenn erforderlich (außergewöhnlich)
+</h2>
+<ul class="tight">
+<li>z. B. <em>Anprall</em>, <em>Ausfall von Tragelementen</em>, u. ä.</li>
+</ul>
+
+
+<p class="muted">Hinweis: EAB = Empfehlungen des Arbeitskreises „Baugruben“.</p>
+</div>
+</section>
+</div>
+</div>
+
+
+<!-- Reveal.js core JS -->
+<script src="https://cdn.jsdelivr.net/npm/reveal.js@5/dist/reveal.js"></script>
+<script>
+const deck = new Reveal({
+transition: 'slide',
+hash: true,
+controls: false,
+progress: false,
+slideNumber: false,
+center: true,
+margin: 0.08,
+});
+deck.initialize();
+</script>
+</body>
+</html>
