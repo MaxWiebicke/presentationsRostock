@@ -225,7 +225,7 @@
 						<h4>Erddruck hinter einer einfach gestützten Stützwand</h4>
 						<br>
 						<div class="r-stack">
-							<img class="fragment" data-fragment-index="1" src="images/Kolymbas2019-Erddruck-Stuetze.jpg" width="80%">
+							<img class="fragment" data-fragment-index="1" src="images/Kolymbas2019-Erddruck-Stuetze-0.jpg" width="80%">
 							<img class="fragment" data-fragment-index="2" src="images/Kolymbas2019-Erddruck-Stuetze-1.jpg" width="80%">
 							<img class="fragment" data-fragment-index="3" src="images/Kolymbas2019-Erddruck-Stuetze.jpg" width="80%">
 						</div>
@@ -357,7 +357,7 @@
 								<span style="font-size: 30px;">Bedingungen für volle Einspannung</span>
 								<ul style="font-size: 30px;">
 									<li>nicht bei weichen bindigen Böden </li>
-									<li>ausreichend tiefe Einbindung ($\Delta t = 0.2\cdot t_1$)</li>
+									<li>ausreichend tiefe Einbindung ($\Delta t_1 = 0.2\cdot t_1$)</li>
 									<li>Mobilisierung der Ersatzkraft $C$</li>
 									<ul>
 										<li>Spundwände: i.d.R. mind. mitteldicht gelagerte nichtbindige Böden und bei mind. steife bindige Böden</li>
@@ -521,7 +521,7 @@
 					</section>
 
 					<section>
-						<h4>Versagen bodengestützter Wände durch Drehung</h4>
+						<h4>GEO-2: Versagen bodengestützter Wände durch Drehung</h4>
 						<br>
 
 						<div class="columns">
@@ -628,7 +628,7 @@
 
 
 					<section>
-						<h4>Versagen bodengestützter Wände durch Vertikalbewegung</h4>
+						<h4>GEO-2: Versagen bodengestützter Wände durch Vertikalbewegung</h4>
 
 						<div class="columns">
 							<div class="custom-column30">
@@ -651,7 +651,7 @@
 					</section>
 
 					<section>
-						<h4>Standsicherheit in der tiefen Gleitfuge</h4>
+						<h4>GEO-2: Standsicherheit in der tiefen Gleitfuge</h4>
 						<div class="columns">
 							<div class="custom-column">
 								<div class="r-stack">
@@ -673,7 +673,7 @@
 					</section>
 
 					<section>
-						<h4>Standsicherheit in der tiefen Gleitfuge</h4>
+						<h4>GEO-2: Standsicherheit in der tiefen Gleitfuge</h4>
 						<p style="font-size: 35px;">
 
 						Nachweis nach EAB (2021):
@@ -711,6 +711,48 @@
 						\[ \eta = \tan \varphi_{\text{vorh}} / \tan \varphi_{\text{erf}} \ge 1
 						\]
 						</p>
+
+					</section>
+
+					<section>
+						<h4>GEO-2: Herausziehen von Ankern</h4>
+
+
+						<ul style="font-size: 30px;">
+							<li>Nachweis: <br>
+							$A_d \le R_{a,d} = R_{a,k} / \gamma_a$
+							</li>
+							<li>bodenmechanische Berechnung des Ankerwiderstands $R_{a,k}$ liefert i.d.R. keine zutreffenden Ergebnisse</li>
+							<li>gefordert: Eignungsprüfungen bis zur Prüflast $P_p = 1.1~A_d$ <br>
+							$R_{a,k} = \text{min}_{i\ge3} ~\{ R_{a,i} \}$ <br>
+							&#10137; siehe Modul Spezialtiefbau
+							</li>
+							<li>zur Vorbemessung können aber Erfahrungsdiagramme verwendet werden, z.B. Ostermayer (2001)</li>
+						</ul>
+
+					</section>
+
+					<section>
+						<h4>Grenzkraft von Ankern nach Ostermayer (2001)</h4>
+						<br>
+
+						<div class="columns">
+							<div class="column">
+								<div class="r-stack">
+									<img src="images/Schmidt_2017-Ankerkraefte-Ostermayer-2001-grob.jpg" width="100%">
+								</div>
+							</div>
+
+							<div class="column">
+								<div class="r-stack">
+									<img src="images/Schmidt_2017-Ankerkraefte-Ostermayer-2001-fein.jpg" width="90%">
+								</div>
+								<p class="right-align" style="display: block; margin-top: -0px;">
+									<small>(Schmidt, 2017)</small>
+								</p>
+							</div>
+
+						</div>
 
 					</section>
 
@@ -829,6 +871,25 @@
 				<section>
 
 					<section>
+						<h4>Zusammenfassung</h4>
+
+						<ul style="font-size: 30px;">
+							<li>System wählen (Kragwand, Stützung, ...)</li>
+							<li>notwendige Einbindetiefe bestimmen &#10137; NW Versagen bodengestützter Wände durch Drehung </li>
+							<li>Angriffswinkel $\delta_p$ überprüfen &#10137; NW Nachweis der Vertikalkomponente des mobilisierten Erdwiderstands </li>
+							<li>NW Versagen bodengestützter Wände durch Vertikalbewegung  </li>
+							<li>Anker bemessen </li>
+							<ul>
+								<li>Bestimmung Einbindelänge &#10137; NW Standsicherheit in der tiefen Gleitfuge</li>
+								<li>Bestimmung Länge des Verpresskörpers &#10137; NW Herausziehen von Ankern</li>
+							</ul>
+							<li>NW Geländebruch </li>
+
+						</ul>
+
+					</section>
+
+					<section>
 						<h4>Prognosewettbewerb (von Wolffersdorf, 1994)</h4>
 						<br>
 
@@ -863,6 +924,17 @@
 						</div>
 
 					</section>
+
+					<section>
+						<h4>Baugrubeneinsturz Istanbul (2018)</h4>
+
+						<video data-autoplay controls muted>
+							<!--<source src="videos/VIDEO-2020-12-10-20-04-02.mp4" type="video/mp4">-->
+							<source src="videos/Haus-stürzt-auf-einer-Baustelle-ein.mp4" type="video/mp4">
+						</video>
+
+					</section>
+
 
 				</section>
 
@@ -916,6 +988,22 @@
 					</section>
 
 					<section>
+						<h4>Bauzustände einer mehrfach verankerten Stützwand</h4>
+
+						<div class="r-stack">
+							<img src="images/Kolymbas2019-Bauzustaende-0.jpg" width="60%">
+							<img class="fragment" src="images/Kolymbas2019-Bauzustaende-1.jpg" width="60%">
+							<img class="fragment" src="images/Kolymbas2019-Bauzustaende-2.jpg" width="60%">
+							<img class="fragment" src="images/Kolymbas2019-Bauzustaende-3.jpg" width="60%">
+							<img class="fragment" src="images/Kolymbas2019-Bauzustaende.jpg" width="60%">
+						</div>
+						<p class="right-align" style="display: block; margin-top: -40px;">
+							<small>(Kolymbas, 2019)</small>
+						</p>
+
+					</section>
+
+					<section>
 						<h4>Zweifach gestützte Trägerbohlwand - Erddruckumlagerung</h4>
 
 						<span style="font-size: 30px;">
@@ -945,29 +1033,17 @@
 					</section>
 
 					<section>
-						<h4>Bauzustände einer mehrfach verankerten Stützwand</h4>
+						<h4>Zweifach gestützte Wände - Tiefe Gleitfuge</h4>
+						<br>
 
 						<div class="r-stack">
-							<img src="images/Kolymbas2019-Bauzustaende-0.jpg" width="60%">
-							<img class="fragment" src="images/Kolymbas2019-Bauzustaende-1.jpg" width="60%">
-							<img class="fragment" src="images/Kolymbas2019-Bauzustaende-2.jpg" width="60%">
-							<img class="fragment" src="images/Kolymbas2019-Bauzustaende-3.jpg" width="60%">
-							<img class="fragment" src="images/Kolymbas2019-Bauzustaende.jpg" width="60%">
+							<img src="images/EAB_2021-EB44-3.jpg" width="80%">
 						</div>
-						<p class="right-align" style="display: block; margin-top: -40px;">
-							<small>(Kolymbas, 2019)</small>
+						<p class="right-align" style="display: block; margin-top: -30px;">
+							<small>(EAB, 2021)</small>
 						</p>
 
 					</section>
-
-				</section>
-
-				<section>
-					<h4>Zusammenfassung</h4>
-
-					<ul>
-						<li></li>
-					</ul>
 
 				</section>
 
@@ -984,6 +1060,7 @@
 					<h4>zus. Quellen</h4>
 					<ul style="font-size: 25px;">
 						<li>Peck, R. (1969). Deep excavations and tunnelling. State-of-the-Art. Proc.VII.ICSMFE Mexico City, S. 225-290.</li>
+						<li>Ostermayer, H. (2001). Verpreßanker, Grundbautaschenbuch, 6. Auflage, Teil 2, Abschn. 2.5. Ernst &amp; Sohn, Berlin.</li>
 						<li>Long, M. (2001). Database for retaining wall and ground movements due to deep excavations. Journal of Geotechnical and Geoenvironmental Engineering 127. No 3.</li>
 						<li>Moormann, C. (2004). Analysis of wall and ground movements due to deep excavations in soft soil based on a new worldwide database. Soils and foundations, 44(1), 87-98.</li>
 						<li>Achmus, M. (2008). Bodenmechanik und Grundbau - Grundlagen und Konzepte. Mitteilungen des Institutes für Grundbau, Bodenmechanik und Energiewasserbau, Leibniz Universität Hannover. </li>
@@ -1044,7 +1121,7 @@
 						{
 							icon: '<span class="fa-stack" style="margin: -24px -12px;padding:0;"><span class="fa-solid fa-comment fa-stack-1x"></span><strong class="fa-stack-1x fa-inverse qna question-counter" style="font-size:0.5em;"></strong></span>',
 							title: 'Toggle Q&A dashboard (Q)',
-							action: 'RevealQnA.toggleQnA();'^
+							action: 'RevealQnA.toggleQnA();'
 						},
 					]
 				},
