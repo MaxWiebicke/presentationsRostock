@@ -4,7 +4,7 @@
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-		<title>Exploring State Variables of Soils: Insights from Experiments and Models</title>
+		<title>How Soils Think: An Experimental and Theoretical Search for Suitable Descriptors</title>
 
 		<link rel="stylesheet" href="../reveal.js/dist/reset.css">
 		<link rel="stylesheet" href="../reveal.js/dist/reveal.css">
@@ -68,6 +68,10 @@
 		.left-align {
     text-align: left;
 		}
+
+		.right-align {
+    text-align: right;
+		}
 		
 		.reveal section {
     text-align: left;
@@ -116,6 +120,53 @@
 		.fragment.highlight-purple.visible {
 			color: #8653eb
 		}
+
+		.bracket-group {
+			position: relative;
+			display: inline-block;
+			margin-left: 90px;
+      }
+
+      .bracket-group::before {
+			content: "}";
+			font-size: 2em;   /* Adjust as needed */
+			position: absolute;
+			left: -30px;      /* Move closer or further left */
+			top: 0;
+			height: 100%;
+			display: flex;
+			align-items: center;
+      }
+
+      .bracket-label {
+			margin-left: 20px;
+			font-weight: bold;
+      }
+
+      .grouped-list {
+      position: relative;
+      display: inline-block;
+      padding-right: 60px;
+    }
+
+    .grouped-list::after {
+      content: "}";
+      font-size: 3em;
+      position: absolute;
+      right: 10px;
+      top: 0;
+      height: 100%;
+      display: flex;
+      align-items: center;
+    }
+
+    .bracket-label {
+      position: absolute;
+      right: -50px;
+      top: 50%;
+      transform: translateY(-50%);
+      font-weight: bold;
+    }
 		
 		</style>
 		
@@ -125,13 +176,13 @@
 		<div class="reveal">
 			<div class="slides">
 				<section>
-					<h2>Exploring State Variables of Soils</h2>
-					<h3>Insights from Experiments and Models</h3>
+					<h2>How Soils Think</h2>
+					<h3>An Experimental and Theoretical Search for Suitable Descriptors</h3>
 					<br>
 					<br>
 					Max Wiebicke<br>
-					The University of Sydney<br><br>
-					<small>Weimar, 3rd November 2023</small>
+					Technische Universität Braunschweig<br><br>
+					<small>Rostock, 30th October 2025</small>
 					
 				</section>
 				
@@ -218,9 +269,43 @@
 							<img class="fragment" src="images/fabric_entities.jpg" width="100%">
 						</div>
 					</section>
+
+					<section>
+						<h3>How to quantitatively determine fabric?</h3>
+
+						<div class="r-stack">
+							<img class="fragment" data-fragment-index="1" src="images/Simplifying_images.png" width="80%">
+						</div>
+						<p class="right-align" style="display: block; margin-top: -0px;">
+							<small>(Wiebicke et al., 2017)</small>
+						</p>
+
+						<div class="r-stack">
+							<img class="fragment" data-fragment-index="1" src="images/spam-logo-1.png" width="20%">
+						</div>
+						<p class="right-align" style="display: block; margin-top: -20px;">
+							<small>(Stamati et al., 2020)&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
+							&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
+							</small>
+						</p>
+<!--
+						<div class="columns">
+							<div class="custom-column25" align="center">
+								<img class="fragment" data-fragment-index="2" src="images/spam-logo.png" width="38%">
+							</div>
+							<div class="column">
+								<span class="fragment" data-fragment-index="2">
+									(Stamati et al., 2020)
+								</span>
+							</div>
+						</div>-->
+						<!--
+						<div data-id="box" style="height: 60px; width: 800px; background: lightblue;">Extract information from x-ray tomographies</div>
+						-->
+					</section>
 					
 					<section>
-						<h3>How to determine fabric?</h3>
+						<h3>How to quantitatively determine fabric?</h3>
 						<div class="columns">
 							<div class="column">
 								<img class="fragment" data-fragment-index="1" src="images/Triax-Rendering.svg" width="100%">
@@ -233,7 +318,7 @@
 							</div>
 						</div>						
 						
-						<div class="columns">
+						<!--<div class="columns">
 							<div class="custom-column25" align="center">
 								<img class="fragment" data-fragment-index="2" src="images/spam-logo.png" width="38%">
 							</div>						
@@ -243,7 +328,7 @@
 									from x-ray tomographies
 								</span>
 							</div>						
-						</div>						
+						</div>		-->
 						<!--
 						<div data-id="box" style="height: 60px; width: 800px; background: lightblue;">Extract information from x-ray tomographies</div> 
 						-->						
@@ -285,8 +370,54 @@
 							</div>
 						</div>
 					</section>
+
+					<section>
+						<h3>Fabric evolution law</h3>
+						<div class="columns">
+							<div class="custom-column38">
+								<div class="equation-list" style="font-size: 30px;">
+									\[
+									\dot{\bm{F}} = \bm{H} \left( \dot\varepsilon_s^p, \bm{\sigma}, \bm{F}, \rho \right)
+									\]
+									<center>(Zhao and Kruyt, 2020)</center>
+								</div>
+							</div>
+
+							<div class="column">
+								<div class="r-stack">
+									<img class="fragment" data-fragment-index="1" src="images/FabricModellingTwente-0.svg" width="90%">
+									<img class="fragment" data-fragment-index="2" src="images/FabricModellingTwente.svg" width="90%">
+								</div>
+								<div align="right">
+									<small>Zhao et al. (2021)</small>
+								</div>
+							</div>
+
+						</div>
+
+					</section>
+
+					<section>
+						<h3>Localisation of the fabric state</h3>
+						<small>Wiebicke et al. (2020)</small>
+						<div class="columns">
+							<div class="column">
+								<div class="r-stack">
+									<img src="images/extractingSubsets_VarB-0.svg" width="100%">
+									<img class="fragment" data-fragment-index="2" src="images/extractingSubsets_VarB-1.svg" width="100%">
+								</div>
+							</div>
+
+							<div class="column">
+								<div class="r-stack">
+									<img class="fragment" data-fragment-index="1" src="images/HNMWTC02-subvolumes-0.svg" width="100%">
+									<img class="fragment" data-fragment-index="3" src="images/HNMWTC02-subvolumes.svg" width="100%">
+								</div>
+							</div>
+						</div>
+					</section>
 					
-					<!--
+
 					<section>
 						<h3>Localisation in sand samples</h3>
 						<div class="columns">
@@ -310,29 +441,6 @@
 						</div>
 						
 					</section>
-					-->
-					
-					<!--
-					<section>
-						<h3>Localisation of the fabric state</h3>
-						<small>Wiebicke et al. (2020)</small>
-						<div class="columns">
-							<div class="column">
-								<div class="r-stack">
-									<img src="images/extractingSubsets_VarB-0.svg" width="100%">
-									<img class="fragment" data-fragment-index="2" src="images/extractingSubsets_VarB-1.svg" width="100%">
-								</div>
-							</div>
-							
-							<div class="column">
-								<div class="r-stack">
-									<img class="fragment" data-fragment-index="1" src="images/HNMWTC02-subvolumes-0.svg" width="100%">
-									<img class="fragment" data-fragment-index="3" src="images/HNMWTC02-subvolumes.svg" width="100%">
-								</div>
-							</div>							
-						</div>
-					</section>
-					-->
 					
 					<!--
 					<section>
@@ -345,12 +453,31 @@
 						<h3>Evolution of the heterogeneity of the state</h3>
 						<small>Schmidt et al. (2022)</small>
 						<div class="columns">
+							<div class="custom-column30">
+								<div class="r-stack">
+									<img src="images/REVs-0.svg" width="100%">
+									<img class="fragment" data-fragment-index="0" src="images/REVs-1.svg" width="100%">
+									<img class="fragment" data-fragment-index="1" src="images/REVs.svg" width="100%">
+								</div>
+							</div>
+
+							<div class="column">
+								<div class="r-stack">
+									<img class="fragment" data-fragment-index="0" src="images/RVE_size-01_Var3.svg" width="100%">
+								</div>
+							</div>
+
+						</div>
+
+					</section>
+
+					<section>
+						<h3>Evolution of the heterogeneity of the state</h3>
+						<small>Schmidt et al. (2022)</small>
+						<div class="columns">
 							<div class="custom-column60">
 								<div class="r-stack">
-									<img src="images/REVs-0.svg" width="50%">
-									<img class="fragment" data-fragment-index="0" src="images/REVs-1.svg" width="50%">
-									<img class="fragment" data-fragment-index="1" src="images/REVs.svg" width="50%">
-									<img class="fragment" data-fragment-index="2" src="images/verticalSlices-01.png" width="100%">
+									<img src="images/verticalSlices-01.png" width="100%">
 									<img class="fragment" data-fragment-index="3" src="images/verticalSlices-05.png" width="100%">
 									<img class="fragment" data-fragment-index="4" src="images/verticalSlices-10.png" width="100%">
 									<img class="fragment" data-fragment-index="5" src="images/verticalSlices-12.png" width="100%">
@@ -359,7 +486,7 @@
 							
 							<div class="column">
 								<div class="r-stack">
-									<img class="fragment" data-fragment-index="2" src="images/HNMWTC02-heterogeneity-01.svg" width="100%">
+									<img src="images/HNMWTC02-heterogeneity-01.svg" width="100%">
 									<img class="fragment" data-fragment-index="3" src="images/HNMWTC02-heterogeneity-05.svg" width="100%">
 									<img class="fragment" data-fragment-index="4" src="images/HNMWTC02-heterogeneity-10.svg" width="100%">
 									<img class="fragment" data-fragment-index="5" src="images/HNMWTC02-heterogeneity-12.svg" width="100%">
@@ -370,40 +497,13 @@
 											
 					</section>
 					
-					<!--
-					<section>
-						<h3>Fabric evolution law</h3>
-						<div class="columns">
-							<div class="custom-column38">
-								<div class="equation-list" style="font-size: 30px;">
-									\[
-									\dot{\bm{F}} = \bm{H} \left( \dot\varepsilon_s^p, \bm{\sigma}, \bm{F}, \rho \right)
-									\]
-									<center>(Zhao and Kruyt, 2020)</center>
-								</div>
-							</div>
-							
-							<div class="column">
-								<div class="r-stack">
-									<img class="fragment" data-fragment-index="1" src="images/FabricModellingTwente-0.svg" width="90%">
-									<img class="fragment" data-fragment-index="2" src="images/FabricModellingTwente.svg" width="90%">
-								</div>
-								<div align="right">
-									<small>Zhao et al. (2021)</small>
-								</div>
-							</div>
-						
-						</div>
-						
-					</section>
-					-->
 					
 					<section>
 						<h3>Summary</h3>
 						<ul>
 							<li>Developed (open source) tools to quantify grain-scale fabric</li>
 							<li style="color:#CCCCCC">Experimental campaign to study fabric evolution of sands</li>
-							<li style="color:#CCCCCC">Evolution equation for fabric in constitutive models</li>
+							<li>Evolution equation for fabric in constitutive models</li>
 							<li>Revealed the heterogeneity of sand samples</li>
 						</ul>
 						
@@ -440,24 +540,111 @@
 							<img class="fragment" src="images/Tm_visualisation_move.svg" width="100%">
 						</div>
 					</section>
+
+
+					<section>
+						<h3>The hydrodynamic procedure</h3>
+						<span class="fragment" data-fragment-index="1" style="font-size: 40px;"><b>Landau (1960's)</b></span><br>
+						<ul class="fragment" data-fragment-index="1" style="font-size: 35px;">
+							<li>Conservation of energy, momentum and mass</li>
+							<li>Second law of thermodynamics</li>
+							<li>Thermodynamic pressure-density relation</li>
+						</ul>
+
+						<br>
+
+						<span class="fragment" data-fragment-index="2" style="font-size: 40px;"><b>Mario Liu (2000's)</b></span><br>
+						<ul class="fragment" data-fragment-index="2" style="font-size: 35px;">
+							<li>Onsager’s reciprocity of irreversible fluxes</li>
+							<li>Vanishment of irreversible fluxes close to equilibrium</li>
+							<li>Two scales of temperatures in heterogeneous media</li>
+							<li>Two-stage irreversibility</li>
+						</ul>
+
+					</section>
+
+					<!--<section>
+						<style>
+							.grouped-list {
+							position: relative;
+							display: inline-block;
+							padding-right: 60px;
+							}
+
+							.grouped-list::after {
+							content: "}";
+							font-size: 5em;
+							transform: scaleX(0.7); /* Try values between 0.5 and 0.9 */
+							display: inline-block;  /* required for transform */
+							position: absolute;
+							right: -200px;
+							top: 0;
+							height: 100%;
+							display: flex;
+							align-items: center;
+							}
+
+							.bracket-label {
+							position: absolute;
+							right: -50px;
+							top: 50%;
+							transform: translateY(-50%);
+							font-weight: bold;
+							}
+						</style>
+
+						<ul class="grouped-list" style="font-size: 30px;">
+							<li>Conservation of energy, momentum and mass</li>
+							<li>Second law of thermodynamics</li>
+							<li>Thermodynamic pressure-density relation</li>
+						</ul>
+						<div class="bracket-label">Lev Landau (1960's)</div>
+
+						<ul class="grouped-list" style="font-size: 30px;">
+							<li>Onsager’s reciprocity of irreversible fluxes</li>
+							<li>Vanishment of irreversible fluxes close to equilibrium</li>
+							<li>Two scales of temperatures in heterogeneous media</li>
+							<li>Two-stage irreversibility</li>
+						</ul>
+						<div class="bracket-label">Mario Liu (2000's)</div>
+
+					</section>-->
+
+					<section>
+						<h3>The hydrodynamic procedure</h3>
+						<h4>Material state</h4>
+						<div class="equation-list" style="font-size: 30px;">
+							<ul>
+								<li class="fragment" data-fragment-index="0">Internal energy density <br>
+								<div class="r-stack">
+									<img class="fragment" data-fragment-index="0" src="images/internalEnergyDensity-0.svg" width="70%">
+									<img class="fragment" data-fragment-index="1" src="images/internalEnergyDensity.svg" width="70%">
+								</div>
+								</li>
+
+								<li class="fragment" data-fragment-index="2"> Thermodynamic pressure
+								$$
+								p^T \equiv - \frac{\partial \left(u / \rho \right)}{\partial \left(1 / \rho\right)}
+								$$
+								</li>
+
+								<li class="fragment" data-fragment-index="3"> Dissipative stress
+								$$
+								\sigma^d_{ij} \equiv \sigma_{ij} - \sigma_{ij}^e - p^T \delta_{ij}
+								$$
+								</li>
+							</ul>
+						</div>
+					</section>
 					
 					<section>
 						<h3>The hydrodynamic procedure</h3>
-						<small>Landau and Lifshitz (1980)</small>
-						<div class="equation-list" style="font-size: 25px;">
+						<div class="equation-list" style="font-size: 30px;">
 							<ul>
-								<li class="fragment" data-fragment-index="0">State variables (and their energy conjugates)
-								$$
-								\rho \rightarrow \mu = \frac{\partial u}{\partial \rho}, \quad 
-								\varepsilon^e_{ij} \rightarrow \sigma^e_{ij} = \frac{\partial u}{\partial \varepsilon^e_{ij}}, \quad 
-								s \rightarrow T = \frac{\partial u}{\partial s}, \quad 
-								s_m \rightarrow T_m = \frac{\partial u}{\partial s_m}
-								$$
-								</li>
-								
 								<li class="fragment" data-fragment-index="1"> Total entropy production / Thermodynamic 
 								<span class="fragment custom highlight-orange" data-fragment-index="2">fluxes</span> 
 								and <span class="fragment custom highlight-darkgreen" data-fragment-index="2">forces</span>
+								<span class="fragment" data-fragment-index="3"><br>Two-stage irreversibility (Jiang and Liu, 2009)</span>
 								
 									
 									<div class="r-stack">
@@ -467,14 +654,14 @@
 											+ \sigma_{ij}^d\dot\varepsilon_{ij} + \sigma_{ij}^e\dot\varepsilon_{ij}^p \geq 0
 											\]
 										</span>
-										<span class="fragment" data-fragment-index="2">
+										<span class="fragment fade-in-then-out" data-fragment-index="2">
 											\[
 											R + R_m = \textcolor{#f55431}{f_i} \textcolor{#2ac565}{\nabla_i T} + \textcolor{#f55431}{f_i^m} \textcolor{#2ac565}{\nabla_i T_m} 
 											+ \textcolor{#f55431}{\sigma_{ij}^d} \textcolor{#2ac565}{\dot\varepsilon_{ij}} 
 											+ \textcolor{#2ac565}{\sigma_{ij}^e} \textcolor{#f55431}{\dot\varepsilon_{ij}^p} \geq 0
 											\]
 										</span>
-										<!--
+
 										<span class="fragment" data-fragment-index="3">
 											\[
 											R_m = \textcolor{#f55431}{f_i^m} \textcolor{#2ac565}{\nabla_i T_m} +
@@ -483,7 +670,7 @@
 											\textcolor{#2ac565}{\sigma_{ij}^e} \textcolor{#f55431}{\dot\varepsilon_{ij}^p} + \eta T_m^3 \geq 0 \\
 											\]
 										</span>
-										-->
+
 									</div>
 								</li>
 								
@@ -494,23 +681,23 @@
 											\[\begin{aligned}
 											\textcolor{#f55431}{\dot\varepsilon_{ij}^p} &amp;= \chi_{ijkl} ~ \textcolor{#2ac565}{\sigma_{ij}^e} \\
 											\begin{bmatrix} \dot\varepsilon_v^p \\ \dot\varepsilon_s^p \end{bmatrix} &amp;= 
-											T_m \begin{bmatrix} a & b \\ b & c \end{bmatrix} \begin{bmatrix} p^e \\ q^e \end{bmatrix}
+											T_m \begin{bmatrix} \bar{a} & \bar{b} \\ \bar{b} & \bar{c} \end{bmatrix} \begin{bmatrix} p^e \\ q^e \end{bmatrix}
 											\end{aligned}\]
 										</span>
 										<span class="fragment" data-fragment-index="5">
 											\[\begin{aligned}
 											\textcolor{#f55431}{\dot\varepsilon_{ij}^p} &amp;= \textcolor{#8653eb}{\chi_{ijkl}} ~ \textcolor{#2ac565}{\sigma_{ij}^e} \\
 											\begin{bmatrix} \dot\varepsilon_v^p \\ \dot\varepsilon_s^p \end{bmatrix} &amp;= 
-											\textcolor{#8653eb}{ T_m \begin{bmatrix} a & b \\ b & c \end{bmatrix}} \begin{bmatrix} p^e \\ q^e \end{bmatrix}
+											\textcolor{#8653eb}{ T_m \begin{bmatrix} \bar{a} & \bar{b} \\ \bar{b} & \bar{c} \end{bmatrix}} \begin{bmatrix} p^e \\ q^e \end{bmatrix}
 											\end{aligned}\]
 										</span>
 								</li>
 								
 							</ul>
 						</div>
-						<!--
-						<img class="fragment" data-fragment-index="3" style="position: absolute; bottom: 10px; right: 50px;" src="images/twoStageIrreversibility-black.svg" width="30%" absolute>
-						-->
+
+						<img class="fragment" data-fragment-index="3" style="position: absolute; bottom: 10px; right: -40px;" src="images/twoStageIrreversibility-black.svg" width="35%" absolute>
+
 						
 					</section>
 					
@@ -544,23 +731,72 @@
 									-->
 					
 					<section>
-						<h3>The Model</h3>
+						<h3>Model formulation</h3>
+						<div class="equation-list" style="font-size: 30px;">
+							\[
+							\begin{bmatrix} \dot\varepsilon_v^p \\ \dot\varepsilon_s^p \end{bmatrix} =
+							\textcolor{#8653eb}{ T_m \begin{bmatrix} \bar{a} & \bar{b} \\ \bar{b} & \bar{c} \end{bmatrix}} \begin{bmatrix} p^e \\ q^e \end{bmatrix}
+							\]
+						</div>
+
 						<div class="r-stack">
-							<img src="images/theModel_Tm_var5.svg" width="100%">
-							<!--
-							<img class="fragment" src="images/theModel_Tm_var3-1.svg" width="100%">
-							-->
-							<img class="fragment" src="images/theModel_Tm_var5-1.svg" width="100%">
+							<img class="fragment" src="images/attractors-0.svg" width="100%">
+							<img class="fragment" src="images/attractors-1.svg" width="100%">
+							<img class="fragment" src="images/attractors-2.svg" width="100%">
+							<img class="fragment" src="images/attractors.svg" width="100%">
 						</div>
 					</section>
-					
+
+					<section>
+						<h3>The Model (Wiebicke &amp; Einav, 2024)</h3>
+						<div class="r-stack">
+							<img src="images/theModel_Tm_QR.svg" width="100%">
+						</div>
+					</section>
+
+					<section>
+						<h3>Rate dependence &amp; apparent rate independence?</h3>
+						<br>
+						<div class="r-stack">
+							<img src="images/Terracotta_rate_dependence-0.svg" width="100%">
+							<img class="fragment" data-fragment-index="1" src="images/Terracotta_rate_dependence.svg" width="100%">
+						</div>
+					</section>
+
+					<section>
+						<h3>Apparent rate independence?</h3>
+						<h4>Experiments by Lade and Karimpour (2014)</h4>
+						<div class="r-stack">
+							<img src="images/Lade2014_Data.svg" width="100%">
+							<img class="fragment" data-fragment-index="1" src="images/Lade2014_Data+Terracotta_params3.svg" width="100%">
+						</div>
+					</section>
+
+					<section>
+						<h3>Predictions - Oedometric compression</h3>
+						<small class="fragment" data-fragment-index="1">Experiment from Krieg and Niemunis (1997)</small>
+						<div class="columns">
+							<div class="custom-column30">
+								<img src="images/Oedo_stressStrain.svg" width="100%">
+							</div>							
+							
+							<div class="column">
+								<div class="r-stack">
+									<img class="fragment" data-fragment-index="1" src="images/TC-kriegArrows-0.svg" width="100%">
+									<img class="fragment" data-fragment-index="2" src="images/TC-kriegArrows.svg" width="100%">
+								</div>
+							</div>
+							
+						</div>
+					</section>
+
 					<section>
 						<h3>Predictions - Triaxial undrained compression</h3>
 						<div class="columns">
 							<div class="custom-column20">
 								<img src="images/Triax_stressStrain.svg" width="100%">
-							</div>							
-							
+							</div>
+
 							<div class="column">
 								<div class="r-stack">
 									<img class="fragment" data-fragment-index="1" src="images/RateDep_txu_presentation_single-01.svg" width="100%">
@@ -574,29 +810,10 @@
 									-->
 								</div>
 							</div>
-							
+
 						</div>
 					</section>
-					
-					<!--
-					<section>
-						<h3>Predictions - Oedometric compression</h3>
-						<small class="fragment" data-fragment-index="1">Experiment from Krieg and Niemunis (1997)</small>
-						<div class="columns">
-							<div class="custom-column30">
-								<img src="images/Oedo_stressStrain.svg" width="100%">
-							</div>							
-							
-							<div class="column">
-								<div class="r-stack">
-									<img class="fragment" data-fragment-index="1" src="images/krieg_presentation-0.svg" width="100%">
-									<img class="fragment" data-fragment-index="2" src="images/krieg_presentation.svg" width="100%">
-								</div>
-							</div>
-							
-						</div>
-					</section>
-					-->
+
 					
 					<section>
 						<h3>Summary</h3>
@@ -624,6 +841,14 @@
 						<img class="fragment" data-fragment-index="2" src="images/lastSlide-geotechnics.jpg" width="100%">
 					</div>
 				
+				</section>
+
+				<section>
+					<h3>What's next?</h3>
+					- Projekt mit Ivo und Jerome anteasern
+					- Projekt mit Merita anteasern - auch Mudflowsforschung unter diesem Gesichtspunkt
+					- derzeitige Pflanzenforschung und Ausblick auf Dünen, etc
+
 				</section>
 				
 			</div>
