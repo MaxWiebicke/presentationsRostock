@@ -99,6 +99,34 @@
 				top: 0;
 				left: 20px; /* Adjust this value to control the horizontal spacing */
 		}
+
+		/* Booktabs-ähnliches Tabellenstyling */
+		.table-booktabs {
+			border-collapse: collapse;
+			margin: 1rem auto;
+			font-size: 25px;
+			width: auto; /* wird per <colgroup> gesteuert */
+		}
+		.table-booktabs thead th {
+			border-bottom: 2px solid #000;
+			padding: 0.4rem 0.6rem 0.5rem 0.6rem;
+			text-align: left;
+			vertical-align: top;
+		}
+		.table-booktabs tbody td {
+			padding: 0.35rem 0.6rem;
+			vertical-align: top;
+		}
+		.table-booktabs tbody tr:not(:last-child) td {
+			border-bottom: 1px solid #ddd; /* entspricht \midrule */
+		}
+		/* Abstand zwischen den Spalten wie @{\hspace{0.4cm}} */
+		.table-booktabs td.col2, .table-booktabs th.col2,
+		.table-booktabs td.col3, .table-booktabs th.col3 {
+			padding-left: calc(0.6rem + 0.4cm);
+		}
+		/* etwas Luft zur Überschrift */
+		.slide-heading { margin-bottom: 0.5rem; }
 		
 		</style>
 		
@@ -1095,6 +1123,103 @@
 					</ul>
 
 				</section>
+
+				<section>
+					<h3 class="slide-heading">Lehrmethoden</h3>
+
+					<h4 style="margin-bottom:0;">Interaktives Lernen</h4>
+					<ul style="font-size: 35px;">
+						<li>Aktive Beteiligung statt reiner Vorlesung</li>
+						<li>Kurze Konzept-Checks &amp; Live-Umfragen</li>
+						<li>Vorführexperimente zur Konzept-Verankerung</li>
+						<li>Kurze vereinfachte Experimente in Seminaren/Übungen</li>
+					</ul>
+					<img src="images/IMG_20250521_154054-cut.jpg" style="position: absolute; top: 150px; left: 75%; width: 400px;">
+					<br><br>
+
+					<h4 style="margin-bottom:0;">Computational Thinking</h4>
+					<ul style="font-size: 35px;">
+						<li><a href="https://jupyter-cloud.gwdg.de/jhub/user/0961989/lab/tree/soilModels" target="_blank" rel="noopener noreferrer">Jupyter-Python Notebooks in passenden Kursen</a></li>
+						<li>Reproduzierbare Analysen &amp; sofortiges Feedback</li>
+						<li>Code-Snippets -- Theorie direkt verzahnt</li>
+					</ul>
+
+
+					<!-- optional: kleine Badge-Leiste -->
+					<!--<div style="margin-top:1rem; display:flex; gap:.6rem; flex-wrap:wrap;">
+						<span class="fragment" style="border:1px solid #ddd; border-radius:999px; padding:.25rem .6rem;">🧪 Experimente</span>
+						<span class="fragment" style="border:1px solid #ddd; border-radius:999px; padding:.25rem .6rem;">💻 Jupyter</span>
+						<span class="fragment" style="border:1px solid #ddd; border-radius:999px; padding:.25rem .6rem;">👥 Peer-Instruction</span>
+						<span class="fragment" style="border:1px solid #ddd; border-radius:999px; padding:.25rem .6rem;">✅ Formatives Feedback</span>
+					</div>-->
+				</section>
+
+				<section>
+					<h4 class="slide-heading">Entwurf Lehre im Master: Module &amp; Prüfungen</h2>
+
+					<table class="table-booktabs">
+						<!-- Spaltenbreiten: p{4.5cm} | p{8cm} | p{3.5cm} -->
+						<colgroup>
+						<col style="width:10cm;">
+						<col style="width:14cm;">
+						<col style="width:7cm;">
+						</colgroup>
+
+						<thead>
+						<tr>
+							<th>Modul</th>
+							<th class="col2">Inhalte</th>
+							<th class="col3">Prüfungsform</th>
+						</tr>
+						</thead>
+
+						<tbody>
+						<tr>
+							<td>
+							<strong>Vertiefungsmodul I:</strong><br>
+							Geotechnische Untersuchungen und Spezialtiefbau
+							</td>
+							<td class="col2">
+							<em>Teil I:</em> Experimentelle Bodenmechanik mit Laborpraktikum; fortgeschrittene Experimente (z.&nbsp;B. Bildgebung)<br>
+							<em>Teil II:</em> Spezialtiefbau und Geomesstechnik (Monitoring)
+							</td>
+							<td class="col3">
+							Laborbericht mit Vortrag<br><br>
+							Klausur
+							</td>
+						</tr>
+
+						<tr>
+							<td>
+							<strong>Vertiefungsmodul II:</strong><br>
+							Numerik in der Geotechnik
+							</td>
+							<td class="col2">
+							Bodenverhalten und Stoffmodelle<br>
+							Numerische Methoden mit Fokus auf FEM; mit Aspekten von DEM, MPM, SPH
+							</td>
+							<td class="col3">
+							Beleg mit mündlicher Präsentation
+							</td>
+						</tr>
+
+						<tr>
+							<td>
+							<strong>Vertiefungsmodul III:</strong><br>
+							Bodenmechanik und Geotechnik der Küste
+							</td>
+							<td class="col2">
+							<em>Teil I:</em> Aspekte der Bodenmechanik, wie z.&nbsp;B. Sedimenttransport, Erosion und Dünen bezogen z.&nbsp;B. auf die Arbeit von Bagnold, &mu;(I)-Rheologie, Flüssigboden<br>
+							<em>Teil II:</em> Aspekte der Geotechnik, wie z.&nbsp;B. Kai- und Küstenbauwerke, Offshore-Geotechnik, Rückbau von WEA, schwimmende Gründungen
+							</td>
+							<td class="col3">
+							Mündliche Prüfung<br><br><br><br>
+							Klausur
+							</td>
+						</tr>
+						</tbody>
+					</table>
+					</section>
 
 				
 				
